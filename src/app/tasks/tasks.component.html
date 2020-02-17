@@ -1,0 +1,51 @@
+<po-page-dynamic-table
+  p-auto-router
+  [p-actions]="actions"
+  [p-fields]="fields"
+  [p-service-api]="serviceApi">
+</po-page-dynamic-table>
+
+<div class="row">
+  <div *ngFor="let task of tasks" class="col-sm-6 col-xs-12">
+    <sample-po-page-dynamic-table-users [tasks]="task"></sample-po-page-dynamic-table-users>
+  </div>
+</div>
+
+<!-- <po-page-list
+  [p-actions]="actions"
+  [p-disclaimer-group]="disclaimerGroup"
+  [p-filter]="filterSettings">
+
+  <po-table
+    p-checkbox
+    p-single-select
+    p-sort="true"
+    p-striped="true"
+    [p-columns]="tasksColumns"
+    [p-items]="tasksFiltered">
+  </po-table>
+
+</po-page-list> -->
+
+<!-- <po-modal
+  #advancedFilterModal
+  p-title="Advanced filter"
+  [p-primary-action]="advancedFilterPrimaryAction">
+
+  <form #f="ngForm">
+    <po-multiselect
+      name="jobDescription"
+      [(ngModel)]="jobDescription"
+      p-label="Job description"
+      [p-options]="jobDescriptionOptions">
+    </po-multiselect>
+
+    <po-checkbox-group
+      name="status"
+      [(ngModel)]="status"
+      p-label="Status"
+      [p-options]="statusOptions">
+    </po-checkbox-group>
+  </form>
+
+</po-modal> -->
