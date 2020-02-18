@@ -17,30 +17,12 @@ export class TasksComponent implements OnInit {
 
   }
 
-  @Input() tasks: Task[]
+  columns: Array<PoTableColumn>;
+  items: Array<any>;
 
   ngOnInit() {
-    this.tasksService.getItems().subscribe(task => this.tasks = task)
+    this.columns = this.tasksService.getColumns();
+    this.items = this.tasksService.getItems();
   }
-
-  public readonly serviceApi = 'http://localhost:3000/tasks';
-
-  public readonly actions: PoPageDynamicTableActions = {
-    detail: 'dynamic-detail/:id',
-    duplicate: 'dynamic-new',
-    edit: 'dynamic-edit/:id',
-    new: 'dynamic-new',
-    remove: true,
-    removeAll: true
-  };
-
-  public readonly fields: Array<any> = [
-    { property: 'id', label: 'Id', key: true },
-    { property: 'name', label: 'Nome', filter: true, gridColumns: 6 },
-    { property: 'description', label: 'Descrição', filter: true, gridColumns: 6, duplicate: true },
-    { property: 'category', label: 'Categoria', type: 'string', gridColumns: 6 },
-    { property: 'start', label: 'Início', filter: true, duplicate: true, gridColumns: 12 },
-    { property: 'end', label: 'Fim', filter: true, duplicate: true, gridColumns: 12 }
-  ];
 
 }

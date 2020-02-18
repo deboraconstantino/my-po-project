@@ -8,36 +8,69 @@ import { Task } from './task.model'
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch'
+import { PoTableColumn } from '@portinari/portinari-ui';
 
 @Injectable()
 export class TasksService {
 
      constructor(private http: Http){}
 
-// //   getStatus() {
-// //     return [
-// //       { value: 'hired', label: 'Finalizada' },
-// //       { value: 'progress', label: 'Atrasada' },
-// //       { value: 'canceled', label: 'Cancelada'},
-// //       {value: 'late', label: 'Atrasada'}
-// //     ];
-// //   }
-
-  getItems(): Observable<Task[]> {
-    return this.http.get("http://localhost:3000/tasks").map(response => response.json().items)
-    .catch(ErrorHandler.handleError)
+  getColumns(): Array<PoTableColumn> {
+    return [
+      { property: 'id', type: 'string', width: '8%', label: 'Código'},
+      { property: 'name', label: 'Nome' },
+      { property: 'description', label: 'Descrição' },
+      { property: 'category', label: 'Categoria' },
+      { property: 'start', label: 'Início' },
+      { property: 'end', label: 'Fim' },
+      { property: 'status', type: 'label', width: '8%', labels: [
+        { value: 'finished', color: 'color-11', label: 'Finalizada' },
+        { value: 'progress', color: 'color-08', label: 'Andamento' },
+        { value: 'pending', color: 'color-01', label: 'Pendente' },
+        { value: 'late', color: 'color-07', label: 'Atrasada' }
+      ]}
+    ];
   }
 
-//   getJobs() {
-//     return [
-//       { value: 'Systems Analyst', label: 'Systems Analyst' },
-//       { value: 'Trainee', label: 'Trainee' },
-//       { value: 'Programmer', label: 'Programmer'},
-//       { value: 'Web Developer', label: 'Web developer'},
-//       { value: 'Recruiter', label: 'Recruiter'},
-//       { value: 'Consultant', label: 'Consultant'},
-//       { value: 'DBA', label: 'DBA'}
-//     ];
-//   }
+  getItems(): Array<any> {
+    return [
+      {
+        id: 1200,
+        name: 'Rice',
+        description: 'Angeloni',
+        category: 3,
+        start: 1500,
+        end: "",
+        status: 'finished',
+      },
+      {
+        id: 1200,
+        name: 'Rice',
+        description: 'Angeloni',
+        category: 3,
+        start: 1500,
+        end: "",
+        status: 'progress',
+      },
+      {
+        id: 1200,
+        name: 'Rice',
+        description: 'Angeloni',
+        category: 3,
+        start: 1500,
+        end: "",
+        status: 'pending',
+      },
+      {
+        id: 1200,
+        name: 'Rice',
+        description: 'Angeloni',
+        category: 3,
+        start: 1500,
+        end: "",
+        status: 'late',
+      }
+    ];
+  }
 
 }
