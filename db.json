@@ -6,7 +6,8 @@
         "description":"Nesta tarefa devo fazer tal coisa, para tal fim.",
         "category":"Categoria A",
         "start":"14/02/2020",
-        "end":"16/02/2020"
+        "end":"16/02/2020",
+		"status":"finished" 
      },
      { 
         "id":"000002",
@@ -14,7 +15,8 @@
         "description":"Nesta tarefa devo fazer tal coisa, para tal fim.",
         "category":"Categoria B",
         "start":"14/02/2020",
-        "end":"16/02/2020"
+        "end":"",
+		"status":"late"
      },
      { 
         "id":"000003",
@@ -22,7 +24,8 @@
         "description":"Nesta tarefa devo fazer tal coisa, para tal fim.",
         "category":"Categoria C",
         "start":"14/02/2020",
-        "end":"16/02/2020"
+        "end":"16/02/2020",
+		"status":"finished"
      },
      { 
         "id":"000004",
@@ -30,15 +33,17 @@
         "description":"Nesta tarefa devo fazer tal coisa, para tal fim.",
         "category":"Categoria D",
         "start":"14/02/2020",
-        "end":"16/02/2020"
+        "end":"16/02/2020",
+		"status":"finished"
      },
      { 
         "id":"000005",
         "name":"Tarefa 05",
         "description":"Nesta tarefa devo fazer tal coisa, para tal fim.",
         "category":"Categoria E",
-        "start":"14/02/2020",
-        "end":"16/02/2020"
+        "start":"19/02/2020",
+        "end":"",
+		"status":"late"
      },
      { 
         "id":"000006",
@@ -46,7 +51,8 @@
         "description":"Nesta tarefa devo fazer tal coisa, para tal fim.",
         "category":"Categoria F",
         "start":"14/02/2020",
-        "end":"16/02/2020"
+        "end":"16/02/2020",
+		"status":"finished"
      }
   ]
 }

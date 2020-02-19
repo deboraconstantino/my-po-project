@@ -1,6 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 
+import { TASKS_API } from '../app.api';
 
 import { ErrorHandler } from '../app.error-handler';
 import { Task } from './task.model'
@@ -25,52 +26,14 @@ export class TasksService {
       { property: 'end', label: 'Fim' },
       { property: 'status', type: 'label', width: '8%', labels: [
         { value: 'finished', color: 'color-11', label: 'Finalizada' },
-        { value: 'progress', color: 'color-08', label: 'Andamento' },
-        { value: 'pending', color: 'color-01', label: 'Pendente' },
         { value: 'late', color: 'color-07', label: 'Atrasada' }
       ]}
     ];
   }
 
-  getItems(): Array<any> {
-    return [
-      {
-        id: 1200,
-        name: 'Rice',
-        description: 'Angeloni',
-        category: 3,
-        start: 1500,
-        end: "",
-        status: 'finished',
-      },
-      {
-        id: 1200,
-        name: 'Rice',
-        description: 'Angeloni',
-        category: 3,
-        start: 1500,
-        end: "",
-        status: 'progress',
-      },
-      {
-        id: 1200,
-        name: 'Rice',
-        description: 'Angeloni',
-        category: 3,
-        start: 1500,
-        end: "",
-        status: 'pending',
-      },
-      {
-        id: 1200,
-        name: 'Rice',
-        description: 'Angeloni',
-        category: 3,
-        start: 1500,
-        end: "",
-        status: 'late',
-      }
-    ];
+  getItems(): Observable<Task[]> {
+    return this.http.get(`${TASKS_API}/tasks`).map(response => response.json())
+    .catch(ErrorHandler.handleError)
   }
 
 }

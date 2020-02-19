@@ -18,11 +18,11 @@ export class TasksComponent implements OnInit {
   }
 
   columns: Array<PoTableColumn>;
-  items: Array<any>;
+  items: Task[];
 
   ngOnInit() {
     this.columns = this.tasksService.getColumns();
-    this.items = this.tasksService.getItems();
+    this.tasksService.getItems().subscribe(items => this.items = items)
   }
 
 }

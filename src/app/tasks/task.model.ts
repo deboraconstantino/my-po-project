@@ -4,5 +4,6 @@ export interface Task {
     description: string,
     category: string,
     start: string,
-    end: string
+    end: string,
+    status: string
 }
