@@ -1,0 +1,21 @@
+<po-page-default>
+    <form>
+        <div class="po-row">            
+            <div class="po-offset-xl-2 po-xl-7">
+                <po-divider 
+                    p-label="Nova tarefa" >
+                </po-divider>
+                <po-input p-label="Nome" class="po-xl-12"></po-input>
+                <po-datepicker name="datepicker" p-label="Início" class="po-xl-4"></po-datepicker>
+                <po-combo name="combo" class="po-xl-8" p-label="Categoria" [p-options]="teste"></po-combo>
+                <po-textarea class="po-xl-12" name="textarea" p-label="Descrição"></po-textarea>
+
+                <div class="po-offset-xl-3 po-xl-12">
+                    <po-button class="po-xl-3" p-label="Salvar"></po-button>
+                    <po-button class="po-xl-3" p-label="Cancelar"></po-button>
+                    <po-button class="po-xl-3" p-label="Fechar"></po-button>
+                </div>
+            </div>
+        </div>
+    </form>
+</po-page-default>

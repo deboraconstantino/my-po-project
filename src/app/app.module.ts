@@ -13,11 +13,13 @@ import { PoPageModule } from '@portinari/portinari-ui';
 
 import { TasksComponent } from './tasks/tasks.component';
 import { TasksService } from './tasks/tasks.service';
+import { FormTasksComponent } from './form-tasks/form-tasks.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TasksComponent
+    TasksComponent,
+    FormTasksComponent
   ],
   imports: [
     BrowserModule,
