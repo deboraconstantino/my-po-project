@@ -30,7 +30,7 @@ export class TasksService {
   }
 
   getTasks() {
-    return this.http.get<Task>(`${TASKS_API}/tasks`)
+    return this.http.get<Task[]>(`${TASKS_API}/tasks`)
     .catch(ErrorHandler.handleError)
   }
 
