@@ -14,8 +14,4 @@ export class AppComponent {
     { label: 'Incluir Tarefas', link: 'form-tasks' }
   ];
 
-  private onClick() {
-    alert('Clicked in menu item')
-  }
-
 }

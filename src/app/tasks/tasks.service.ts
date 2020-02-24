@@ -5,7 +5,6 @@ import { TASKS_API } from '../app.api';
 import { ErrorHandler } from '../app.error-handler';
 import { Task } from './task.model';
 
-import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch'
 
@@ -14,7 +13,7 @@ import { PoTableColumn } from '@portinari/portinari-ui';
 @Injectable()
 export class TasksService {
 
-     constructor(private http: HttpClient){}
+  constructor(private http: HttpClient){}
 
   getColumns(): Array<PoTableColumn> {
     return [
@@ -36,7 +35,6 @@ export class TasksService {
   }
 
   postItems(tasks) {
-    return this.http.post(`${TASKS_API}/tasks`, tasks);
+    return this.http.post(`${TASKS_API}/tasks`, tasks)
   }
-
 }
