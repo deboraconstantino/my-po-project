@@ -23,7 +23,7 @@
                     name="combo"
                     class="po-xl-8 po-lg-8"
                     p-label="Categoria"
-                    [p-options]="teste"
+                    [p-options]="[{ value: 'Option 1' }, { value: 'Option 2' }]"
                     formControlName="category">
                 </po-combo>
                 <po-textarea
@@ -35,7 +35,7 @@
 
                 <div class="po-offset-xl-3 po-offset-lg-3 po-xl-12 po-lg-12">
                     <po-button class="po-xl-3 po-lg-3" p-label="Salvar" (p-click)="onSubmit()"></po-button>
-                    <po-button class="po-xl-3 po-lg-3" p-label="Cancelar"></po-button>
+                    <po-button class="po-xl-3 po-lg-3" p-label="Cancelar" (p-click)="clear()"></po-button>
                     <po-button class="po-xl-3 po-lg-3" p-label="Fechar"></po-button>
                 </div>
             </div>

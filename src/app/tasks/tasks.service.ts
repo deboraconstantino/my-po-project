@@ -4,7 +4,8 @@ import { Http } from '@angular/http';
 import { TASKS_API } from '../app.api';
 
 import { ErrorHandler } from '../app.error-handler';
-import { Task } from './task.model'
+import { Task } from './task.model';
+import { FormTasksComponent } from '../form-tasks/form-tasks.component';
 
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
@@ -18,7 +19,6 @@ export class TasksService {
 
   getColumns(): Array<PoTableColumn> {
     return [
-      { property: 'id', type: 'string', width: '8%', label: 'Código'},
       { property: 'name', label: 'Nome' },
       { property: 'description', label: 'Descrição' },
       { property: 'category', label: 'Categoria' },
@@ -34,6 +34,10 @@ export class TasksService {
   getItems(): Observable<Task[]> {
     return this.http.get(`${TASKS_API}/tasks`).map(response => response.json())
     .catch(ErrorHandler.handleError)
+  }
+
+  postItems(tasks) {
+    return this.http.post(`${TASKS_API}/tasks`, tasks);
   }
 
 }

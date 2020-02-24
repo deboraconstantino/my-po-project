@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { PoPageDynamicTableActions } from '@portinari/portinari-templates';
 import { PoTableColumn } from '@portinari/portinari-ui';
 
 import { TasksService } from './tasks.service';
