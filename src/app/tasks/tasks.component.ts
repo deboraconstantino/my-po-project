@@ -21,7 +21,7 @@ export class TasksComponent implements OnInit {
 
   ngOnInit() {
     this.columns = this.tasksService.getColumns();
-    this.tasksService.getItems().subscribe(items => this.items = items)
+    this.tasksService.getTasks().subscribe(items => this.items = items)
   }
 
 }

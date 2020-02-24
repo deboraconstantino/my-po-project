@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { ROUTES } from './app.routes';
 
@@ -29,9 +29,9 @@ import { FormTasksComponent } from './form-tasks/form-tasks.component';
     ReactiveFormsModule,
     PoPageDynamicTableModule,
     PoPageModule,
-    HttpModule
+    HttpClientModule
   ],
-  providers: [TasksService],
+  providers: [TasksService, HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
