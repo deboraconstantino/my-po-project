@@ -3,14 +3,67 @@
     <div class="po-field-icon-container-right">
       <span class="po-icon po-icon-search po-field-icon"></span>
     </div>
-    <input class="po-input po-input-icon-right ng-pristine ng-valid ng-touched" name="model" type="text" placeholder="Pesquisar">
+    <input
+      class="po-input po-input-icon-right ng-pristine ng-valid ng-touched"
+      name="model"
+      type="text"
+      placeholder="Pesquisar"
+    />
   </div>
 
   <po-table
+    p-selectable
     [p-actions]="actions"
     [p-columns]="columns"
     [p-items]="items"
     p-sort="true"
-    [p-striped]="true">
+    [p-striped]="true"
+  >
   </po-table>
+
+  <po-modal
+    #modal
+    p-hide-close="true"
+    p-click-out="true"
+    p-title="Detalhes sobre {{ detail?.name }}"
+  >
+
+  <div>
+    <div class="po-offset-sm-10">
+      <po-button
+        p-label="Alterar"
+        p-type="primary"
+        p-small="false"
+        p-icon="po-icon po-icon-edit">
+      </po-button>
+
+      <po-button
+        p-label="Excluir"
+        p-type="danger"
+        p-small="false"
+        p-icon="po-icon po-icon-clear-content">
+      </po-button>
+    </div>
+    <po-divider>
+    </po-divider>
+  </div>
+
+    <po-info
+      class="po-sm-2"
+      p-label="#"
+      [p-value]="detail?.id">
+    </po-info>
+
+    <po-info
+      class="po-sm-6"
+      p-label="Descrição"
+      [p-value]="detail?.description">
+    </po-info>
+
+    <po-info
+      class="po-sm-4"
+      p-label="Conclusão"
+      [p-value]="detail?.end">
+    </po-info>
+  </po-modal>
 </po-page-default>

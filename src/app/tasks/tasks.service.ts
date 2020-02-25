@@ -18,10 +18,9 @@ export class TasksService {
   getColumns(): Array<PoTableColumn> {
     return [
       { property: 'name', label: 'Nome' },
-      { property: 'description', label: 'Descrição' },
       { property: 'category', label: 'Categoria' },
       { property: 'start', label: 'Início' },
-      { property: 'end', label: 'Fim' },
+      { property: 'end', label: 'Conclusão' },
       { property: 'status', type: 'label', width: '8%', labels: [
         { value: 'finished', color: 'color-11', label: 'Finalizada' },
         { value: 'late', color: 'color-07', label: 'Atrasada' }

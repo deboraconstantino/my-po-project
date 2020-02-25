@@ -3,7 +3,7 @@ import  {  FormBuilder,  FormGroup, Form, Validators  }  from  '@angular/forms';
 
 import { Task } from '../tasks/task.model';
 import { TasksService } from '../tasks/tasks.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PoNotification, PoNotificationService } from '@portinari/portinari-ui';
 
 @Component({
