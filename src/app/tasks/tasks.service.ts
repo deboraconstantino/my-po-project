@@ -36,5 +36,6 @@ export class TasksService {
 
   postItems(tasks) {
     return this.http.post(`${TASKS_API}/tasks`, tasks)
+    .catch(ErrorHandler.handleError)
   }
 }
