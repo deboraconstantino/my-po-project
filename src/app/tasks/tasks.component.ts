@@ -24,8 +24,6 @@ export class TasksComponent implements OnInit {
   columns: Array<PoTableColumn>;
   items: Task[];
   detail: any;
-  idTask: string 
-  //= this.activatedRoute.snapshot.params.id;
 
   ngOnInit() {
     this.columns = this.tasksService.getColumns();

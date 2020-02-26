@@ -1,11 +1,12 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Form, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 import { Task } from "../tasks/task.model";
 import { TasksService } from "../tasks/tasks.service";
-import { ActivatedRoute, Router } from "@angular/router";
-import { PoNotification, PoNotificationService } from "@portinari/portinari-ui";
+import { ActivatedRoute } from "@angular/router";
+import { PoNotificationService, PoComboOption } from "@portinari/portinari-ui";
 import { map, switchMap } from "rxjs/operators";
+import { CategoriesService } from '../categories/categories.service';
 
 @Component({
   selector: "app-form-tasks",
@@ -15,6 +16,7 @@ import { map, switchMap } from "rxjs/operators";
 export class FormTasksComponent implements OnInit {
   formTasks: FormGroup;
   submitted: boolean = false;
+  categories: Array<PoComboOption>
 
   tasks: Task = {
     id: "",
@@ -30,20 +32,12 @@ export class FormTasksComponent implements OnInit {
     private formBuilder: FormBuilder,
     private tasksService: TasksService,
     private activatedroute: ActivatedRoute,
-    private poNotification: PoNotificationService
+    private poNotification: PoNotificationService,
+    private categoriesService: CategoriesService
   ) {}
 
   ngOnInit() {
-    // this.activatedroute.params.subscribe(
-    //   (params: any) => {
-    //     const id = params['id']
-    //     console.log(id);
-    //     const task$ = this.tasksService.getById(id);
-    //     task$.subscribe( task => {
-    //       this.updateForm(task);
-    //     })
-    //   }
-    // )
+    this.categories = this.categoriesService.getCategories();
 
     this.activatedroute.params
       .pipe(

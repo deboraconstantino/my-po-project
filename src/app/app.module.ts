@@ -13,13 +13,16 @@ import { PoModalModule, PoModalComponent, PoPageModule, PoModule } from '@portin
 import { TasksComponent } from './tasks/tasks.component';
 import { TasksService } from './tasks/tasks.service';
 import { FormTasksComponent } from './form-tasks/form-tasks.component';
-import { Task } from './tasks/task.model';
+
+import { CategoriesComponent } from './categories/categories.component';
+import { CategoriesService } from './categories/categories.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     TasksComponent,
-    FormTasksComponent
+    FormTasksComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import { Task } from './tasks/task.model';
     HttpClientModule,
     PoModalModule
   ],
-  providers: [TasksService, HttpClientModule, PoModalComponent],
+  providers: [TasksService, HttpClientModule, PoModalComponent, CategoriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
