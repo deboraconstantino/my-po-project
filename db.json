@@ -13,10 +13,8 @@
       "id": "000002",
       "name": "Tarefa 02",
       "description": "Nesta tarefa devo fazer tal coisa, para tal fim.",
-      "category": "Categoria B",
-      "start": "14/02/2020",
-      "end": "",
-      "status": "late"
+      "category": "lazer",
+      "start": "2020-02-26"
     },
     {
       "id": "L7EEMiP",

@@ -1,11 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ActivatedRoute } from "@angular/router";
+import { map, switchMap } from "rxjs/operators";
+
+import { PoNotificationService, PoComboOption } from "@portinari/portinari-ui";
 
 import { Task } from "../tasks/task.model";
 import { TasksService } from "../tasks/tasks.service";
-import { ActivatedRoute } from "@angular/router";
-import { PoNotificationService, PoComboOption } from "@portinari/portinari-ui";
-import { map, switchMap } from "rxjs/operators";
 import { CategoriesService } from '../categories/categories.service';
 
 @Component({
