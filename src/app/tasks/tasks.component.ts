@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { PoTableColumn, PoTableAction, PoModalComponent, PoModalAction } from '@portinari/portinari-ui';
+import { PoTableColumn, PoTableAction, PoModalComponent, PoModalAction, PoNotificationService } from '@portinari/portinari-ui';
 
 import { TasksService } from './tasks.service';
 import { Task } from './task.model';
+import { PoModalService } from '@portinari/portinari-ui/lib/components/po-modal/po-modal-service';
 
 @Component({
   selector: 'sample-po-page-dynamic-table-users',
@@ -17,7 +18,8 @@ export class TasksComponent implements OnInit {
 
   constructor(private tasksService: TasksService,
     private router: Router,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,
+    private poNotification: PoNotificationService) { }
 
   columns: Array<PoTableColumn>;
   items: Task[];
@@ -43,11 +45,18 @@ export class TasksComponent implements OnInit {
   }
 
   edit(id){
-    console.log(id);
     this.router.navigate(['edit', id], { relativeTo: this.activatedRoute });
   }
 
-  delet() {
-    alert('excluir')
+  remove(id) {
+    this.tasksService.removeTask(id)
+    .subscribe(a => {
+      this.poNotification.success("Tarefa excluída com sucesso!"),
+      this.refresh();
+    });
+  }
+
+  refresh() {
+    this.tasksService.getTasks().subscribe(dados => this.items = dados)
   }
 }

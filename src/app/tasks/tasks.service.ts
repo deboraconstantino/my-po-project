@@ -47,4 +47,9 @@ export class TasksService {
     return this.http.put(`${TASKS_API}/tasks/${task.id}`, task)
     .catch(ErrorHandler.handleError)
   }
+
+  removeTask(id) {
+    return this.http.delete(`${TASKS_API}/tasks/${id}`)
+    .catch(ErrorHandler.handleError)
+  }
 }
