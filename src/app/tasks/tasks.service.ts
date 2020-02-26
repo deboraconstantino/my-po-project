@@ -37,4 +37,14 @@ export class TasksService {
     return this.http.post(`${TASKS_API}/tasks`, tasks)
     .catch(ErrorHandler.handleError)
   }
+
+  getById(id: string) {
+    return this.http.get<Task[]>(`${TASKS_API}/tasks/${id}`)
+    .catch(ErrorHandler.handleError)
+  }
+
+  updateTask(task) {
+    return this.http.put(`${TASKS_API}/tasks/${task.id}`, task)
+    .catch(ErrorHandler.handleError)
+  }
 }

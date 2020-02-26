@@ -13,16 +13,17 @@ import { Task } from './task.model';
 })
 
 export class TasksComponent implements OnInit {
+  task: Task;
 
   constructor(private tasksService: TasksService,
-    private route: Router,
+    private router: Router,
     private activatedRoute: ActivatedRoute) { }
-
-  task: Task;
 
   columns: Array<PoTableColumn>;
   items: Task[];
   detail: any;
+  idTask: string 
+  //= this.activatedRoute.snapshot.params.id;
 
   ngOnInit() {
     this.columns = this.tasksService.getColumns();
@@ -31,7 +32,7 @@ export class TasksComponent implements OnInit {
 
   actions: Array<PoTableAction> = [
     { action: this.viewTask.bind(this), icon: 'po-icon po-icon-eye', label: 'Detalhes' },
-    { label: '' }
+    { icon: 'po-icon po-icon-ok', label: 'Finalizar' }
   ];
 
   @ViewChild(PoModalComponent, { static: true }) poModal: PoModalComponent;
@@ -41,19 +42,10 @@ export class TasksComponent implements OnInit {
     this.poModal.open();
   }
 
-  // edit: PoModalAction = {
-  //   action: () => {
-  //     this.route.navigate(['edit', this.task.id])
-  //   },
-  //   label: 'Alterar'
-  // };
-
-  // remove: PoModalAction = {
-  //   action: () => {
-  //     this.delet();
-  //   },
-  //   label: 'Excluir'
-  // };
+  edit(id){
+    console.log(id);
+    this.router.navigate(['edit', id], { relativeTo: this.activatedRoute });
+  }
 
   delet() {
     alert('excluir')

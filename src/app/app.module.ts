@@ -13,6 +13,7 @@ import { PoModalModule, PoModalComponent, PoPageModule, PoModule } from '@portin
 import { TasksComponent } from './tasks/tasks.component';
 import { TasksService } from './tasks/tasks.service';
 import { FormTasksComponent } from './form-tasks/form-tasks.component';
+import { Task } from './tasks/task.model';
 
 @NgModule({
   declarations: [

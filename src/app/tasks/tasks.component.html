@@ -31,16 +31,16 @@
   <div>
     <div class="po-offset-sm-10">
       <po-button
+        (p-click)="edit(detail?.id)"
         p-label="Alterar"
         p-type="primary"
-        p-small="false"
         p-icon="po-icon po-icon-edit">
       </po-button>
 
       <po-button
+        (p-click)="remove()"
         p-label="Excluir"
         p-type="danger"
-        p-small="false"
         p-icon="po-icon po-icon-clear-content">
       </po-button>
     </div>
