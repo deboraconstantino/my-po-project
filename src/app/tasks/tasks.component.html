@@ -60,7 +60,7 @@
       [p-value]="detail?.description">
     </po-info>
 
-    <po-info
+    <po-info *ngIf="detail?.end"
       class="po-sm-4"
       p-label="Conclusão"
       [p-value]="detail?.end">
