@@ -15,6 +15,37 @@
       "description": "Nesta tarefa devo fazer tal coisa, para tal fim.",
       "category": "lazer",
       "start": "2020-02-26"
+    },
+    {
+      "id": "pozazgH",
+      "name": "Tarefa 03",
+      "description": "teste do teste do teste",
+      "category": "Outros",
+      "start": "2020-10-10",
+      "status": null
+    },
+    {
+      "id": "00j5gMP",
+      "name": "Tarefa 04",
+      "description": "<po-input\n                    p-label=\"Nome\"\n                    class=\"po-xl-12 po-lg-12\"\n                    formControlName=\"name\">\n                </po-input>",
+      "category": "Trabalho",
+      "start": "1010-10-10",
+      "status": null
+    },
+    {
+      "id": "DEkR3ga",
+      "name": "teste",
+      "description": "<po-input\n                    p-label=\"Nome\"\n                    class=\"po-xl-12 po-lg-12\"\n                    formControlName=\"name\">\n                </po-input>",
+      "category": "Outros",
+      "start": "2020-02-19"
+    },
+    {
+      "id": "lFs9S4_",
+      "name": "sdsa",
+      "description": "<po-input\n                    p-label=\"Nome\"\n                    class=\"po-xl-12 po-lg-12\"\n                    formControlName=\"name\">\n                </po-input>",
+      "category": "Trabalho",
+      "start": "2020-02-13",
+      "status": "finished"
     }
   ]
 }

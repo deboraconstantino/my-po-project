@@ -61,6 +61,12 @@ export class FormTasksComponent implements OnInit {
     });
   }
 
+  getStatus(){
+    if (this.formTasks.value.category) {
+      return this.formTasks.value.status = "finished"
+    }
+  }
+
   onSubmit() {
     this.submitted = true;
     if (this.formTasks.valid) {
@@ -68,6 +74,7 @@ export class FormTasksComponent implements OnInit {
         this.tasksService.updateTask(this.formTasks.value)
         .subscribe(a => this.poNotification.success("Tarefa alterada com sucesso!"));
       } else {
+        this.getStatus()
         this.tasksService.postItems(this.formTasks.value)
         .subscribe(a => {
           this.poNotification.success("Tarefa incluída com sucesso!"),

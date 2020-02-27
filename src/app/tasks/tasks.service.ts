@@ -23,7 +23,8 @@ export class TasksService {
       { property: 'end', label: 'Conclusão' },
       { property: 'status', type: 'label', width: '8%', labels: [
         { value: 'finished', color: 'color-11', label: 'Finalizada' },
-        { value: 'late', color: 'color-07', label: 'Atrasada' }
+        { value: 'late', color: 'color-07', label: 'Atrasada' },
+        { value: 'progress', color: 'color-01', label: 'Pendente' }
       ]}
     ];
   }

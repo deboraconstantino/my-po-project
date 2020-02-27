@@ -5,10 +5,10 @@ import { PoComboOption } from '@portinari/portinari-ui';
 export class CategoriesService {
     getCategories(): Array<PoComboOption>{
         return [
-          { label: 'Lazer', value: 'lazer' },
-          { label: 'Trabalho', value: 'work' },
-          { label: 'Educação', value: 'education' },
-          { label: 'Outros', value: 'outros' },
+          { label: 'Lazer', value: 'Lazer' },
+          { label: 'Trabalho', value: 'Trabalho' },
+          { label: 'Educação', value: 'Educação' },
+          { label: 'Outros', value: 'Outros' },
         ];
       }
 }
