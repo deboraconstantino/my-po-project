@@ -37,7 +37,7 @@
         p-icon="po-icon po-icon-edit">
       </po-button>
 
-      <po-button *ngIf="!detail?.end"
+      <po-button *ngIf="detail?.end"
         (p-click)="openDialog(detail?.id)"
         p-label="Excluir"
         p-type="danger"
