@@ -31,7 +31,9 @@ export class TasksComponent implements OnInit {
 
   ngOnInit() {
     this.columns = this.tasksService.getColumns();
-    this.tasksService.getTasks().subscribe(dados => this.items = dados.map((dado) => ({... dado, start: this.datePipe.transform(dado.start, 'dd/MM/yyyy')})))
+    this.tasksService.getTasks()
+    .subscribe(dados => this.items = dados
+      .map((dado) => ({... dado, start: this.datePipe.transform(dado.start, 'dd/MM/yyyy')})))
   }
 
   actions: Array<PoTableAction> = [

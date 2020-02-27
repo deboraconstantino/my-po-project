@@ -8,6 +8,7 @@ import { PoNotificationService, PoComboOption } from "@portinari/portinari-ui";
 import { Task } from "../tasks/task.model";
 import { TasksService } from "../tasks/tasks.service";
 import { CategoriesService } from '../categories/categories.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: "app-form-tasks",
@@ -18,6 +19,9 @@ export class FormTasksComponent implements OnInit {
   formTasks: FormGroup;
   submitted: boolean = false;
   categories: Array<PoComboOption>
+  data = new Date();
+  newDate;
+  atStart: string
 
   tasks: Task = {
     id: "",
@@ -34,8 +38,8 @@ export class FormTasksComponent implements OnInit {
     private tasksService: TasksService,
     private activatedroute: ActivatedRoute,
     private poNotification: PoNotificationService,
-    private categoriesService: CategoriesService
-  ) {}
+    private categoriesService: CategoriesService,
+    private datePipe: DatePipe) {}
 
   ngOnInit() {
     this.categories = this.categoriesService.getCategories();
@@ -62,8 +66,15 @@ export class FormTasksComponent implements OnInit {
   }
 
   getStatus(){
-    if (this.formTasks.value.category) {
-      return this.formTasks.value.status = "finished"
+    this.atStart = this.formTasks.value.start
+    this.newDate = this.datePipe.transform(this.data, 'yyyy-MM-dd')
+
+    if (this.atStart == this.newDate) {
+      return this.formTasks.value.status = "today"
+    } else if (this.atStart > this.newDate && !this.formTasks.value.end) {
+      return this.formTasks.value.status = "pending"
+    } else if (this.atStart < this.newDate && !this.formTasks.value.end) {
+      return this.formTasks.value.status = "late"
     }
   }
 
