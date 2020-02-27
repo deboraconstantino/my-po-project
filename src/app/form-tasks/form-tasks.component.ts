@@ -65,28 +65,13 @@ export class FormTasksComponent implements OnInit {
     });
   }
 
-  getStatus(){
-    this.atStart = this.formTasks.value.start
-    this.newDate = this.datePipe.transform(this.data, 'yyyy-MM-dd')
-
-    if (this.atStart == this.newDate) {
-      return this.formTasks.value.status = "today"
-    } else if (this.atStart > this.newDate && !this.formTasks.value.end) {
-      return this.formTasks.value.status = "pending"
-    } else if (this.atStart < this.newDate && !this.formTasks.value.end) {
-      return this.formTasks.value.status = "late"
-    }
-  }
-
   onSubmit() {
     this.submitted = true;
     if (this.formTasks.valid) {
-      this.getStatus()
       if (this.formTasks.value.id) {
         this.tasksService.updateTask(this.formTasks.value)
         .subscribe(a => this.poNotification.success("Tarefa alterada com sucesso!"));
       } else {
-        this.getStatus()
         this.tasksService.postItems(this.formTasks.value)
         .subscribe(a => {
           this.poNotification.success("Tarefa incluída com sucesso!"),
