@@ -1,11 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { PoTableColumn, PoTableAction, PoModalComponent, PoModalAction, PoNotificationService } from '@portinari/portinari-ui';
+import { PoTableColumn, PoTableAction, PoModalComponent, PoNotificationService, PoDialogService } from '@portinari/portinari-ui';
 
 import { TasksService } from './tasks.service';
 import { Task } from './task.model';
-import { PoModalService } from '@portinari/portinari-ui/lib/components/po-modal/po-modal-service';
 
 @Component({
   selector: 'sample-po-page-dynamic-table-users',
@@ -19,11 +18,14 @@ export class TasksComponent implements OnInit {
   constructor(private tasksService: TasksService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private poNotification: PoNotificationService) { }
+    private poNotification: PoNotificationService,
+    private poAlert: PoDialogService) { }
 
   columns: Array<PoTableColumn>;
   items: Task[];
   detail: any;
+  action: string;
+  actionOptions: Array<string>;
 
   ngOnInit() {
     this.columns = this.tasksService.getColumns();
@@ -40,6 +42,15 @@ export class TasksComponent implements OnInit {
   viewTask(task) {
     this.detail = task;
     this.poModal.open();
+  }
+
+  openDialog(id) {
+    this.poAlert.confirm({
+      title: "Excluir tarefa",
+      message: "Tem certeza de que deseja excluir essa tarefa?",
+      confirm: () => this.remove(id),
+      cancel: () => this.refresh()
+    });
   }
 
   edit(id){

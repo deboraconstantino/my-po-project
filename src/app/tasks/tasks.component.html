@@ -37,8 +37,8 @@
         p-icon="po-icon po-icon-edit">
       </po-button>
 
-      <po-button
-        (p-click)="remove(detail?.id)"
+      <po-button *ngIf="!detail?.end"
+        (p-click)="openDialog(detail?.id)"
         p-label="Excluir"
         p-type="danger"
         p-icon="po-icon po-icon-clear-content">
@@ -65,13 +65,5 @@
       p-label="Conclusão"
       [p-value]="detail?.end">
     </po-info>
-  </po-modal>
-
-  <po-modal
-    #modalDelete
-    p-hide-close="true"
-    p-click-out="true"
-    p-title="Excluir {{ detail?.name }}">
-      Tem certeza de que deseja excluir a tarefa?
   </po-modal>
 </po-page-default>
