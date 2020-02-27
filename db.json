@@ -5,7 +5,7 @@
       "name": "Tarefa 01",
       "description": "Nesta tarefa devo fazer tal coisa, para tal fim.",
       "category": "Categoria A",
-      "start": "14/02/2020",
+      "start": "2020-02-14",
       "end": "16/02/2020",
       "status": "finished"
     },

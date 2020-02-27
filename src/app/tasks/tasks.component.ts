@@ -5,6 +5,7 @@ import { PoTableColumn, PoTableAction, PoModalComponent, PoNotificationService, 
 
 import { TasksService } from './tasks.service';
 import { Task } from './task.model';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'sample-po-page-dynamic-table-users',
@@ -19,17 +20,18 @@ export class TasksComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private poNotification: PoNotificationService,
-    private poAlert: PoDialogService) { }
+    private poAlert: PoDialogService,
+    private datePipe: DatePipe) { }
 
   columns: Array<PoTableColumn>;
-  items: Task[];
+  items: any;
   detail: any;
   action: string;
   actionOptions: Array<string>;
 
   ngOnInit() {
     this.columns = this.tasksService.getColumns();
-    this.tasksService.getTasks().subscribe(dados => this.items = dados)
+    this.tasksService.getTasks().subscribe(dados => this.items = dados.map((dado) => ({... dado, start: this.datePipe.transform(dado.start, 'dd/MM/yyyy')})))
   }
 
   actions: Array<PoTableAction> = [
