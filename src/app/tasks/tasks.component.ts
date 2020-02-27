@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 import { PoTableColumn, PoTableAction, PoModalComponent, PoNotificationService, PoDialogService } from '@portinari/portinari-ui';
 
 import { TasksService } from './tasks.service';
 import { Task } from './task.model';
-import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'sample-po-page-dynamic-table-users',
@@ -28,12 +28,15 @@ export class TasksComponent implements OnInit {
   detail: any;
   action: string;
   actionOptions: Array<string>;
+  date = new Date();
+  newDate;
 
   ngOnInit() {
     this.columns = this.tasksService.getColumns();
     this.tasksService.getTasks()
     .subscribe(dados => this.items = dados
-      .map((dado) => ({... dado, start: this.datePipe.transform(dado.start, 'dd/MM/yyyy')})))
+      .map((dado) => ({... dado, start: this.datePipe.transform(dado.start, 'dd/MM/yyyy'),
+      status: this.tasksService.updStatus(dado.start, dado.end, dado.status)})))
   }
 
   actions: Array<PoTableAction> = [
@@ -70,6 +73,7 @@ export class TasksComponent implements OnInit {
   }
 
   refresh() {
-    this.tasksService.getTasks().subscribe(dados => this.items = dados)
+    this.tasksService.getTasks().subscribe(dados => this.items = dados
+     .map((dado) => ({... dado, status: this.tasksService.updStatus(dado.start, dado.end, dado.status)})))
   }
 }

@@ -1,82 +1,40 @@
 {
   "tasks": [
     {
-      "id": "000001",
-      "name": "Tarefa 01",
-      "description": "Nesta tarefa devo fazer tal coisa, para tal fim.",
-      "category": "Categoria A",
-      "start": "2020-02-14",
-      "end": "16/02/2020",
-      "status": "finished"
+      "id": 1,
+      "name": "Teste HOJE",
+      "description": "Teste hoje\nTeste hoje",
+      "category": "Lazer",
+      "start": "2020-02-27"
     },
     {
-      "id": "000002",
-      "name": "Tarefa 02",
-      "description": "Nesta tarefa devo fazer tal coisa, para tal fim.",
-      "category": "lazer",
+      "id": 2,
+      "name": "Teste ATRASADA",
+      "description": "Teste Atrasada\nTeste Atrasada",
+      "category": "Trabalho",
       "start": "2020-02-26"
     },
     {
-      "id": "pozazgH",
-      "name": "Tarefa 03",
-      "description": "teste do teste do teste",
-      "category": "Outros",
-      "start": "2020-10-10",
-      "status": null
-    },
-    {
-      "id": "00j5gMP",
-      "name": "Tarefa 04",
-      "description": "<po-input\n                    p-label=\"Nome\"\n                    class=\"po-xl-12 po-lg-12\"\n                    formControlName=\"name\">\n                </po-input>",
+      "id": 3,
+      "name": "Teste PENDENTE",
+      "description": "Teste Pendente\nTeste Pendente",
       "category": "Trabalho",
-      "start": "1010-10-10",
-      "status": null
+      "start": "2020-02-28"
     },
     {
-      "id": "DEkR3ga",
-      "name": "teste",
-      "description": "<po-input\n                    p-label=\"Nome\"\n                    class=\"po-xl-12 po-lg-12\"\n                    formControlName=\"name\">\n                </po-input>",
-      "category": "Outros",
-      "start": "2020-02-19"
-    },
-    {
-      "id": "lFs9S4_",
-      "name": "sdsa",
-      "description": "<po-input\n                    p-label=\"Nome\"\n                    class=\"po-xl-12 po-lg-12\"\n                    formControlName=\"name\">\n                </po-input>",
+      "id": 4,
+      "name": "Teste FINALIZADA",
+      "description": "Teste Finalizada\nTeste Finalizada",
       "category": "Trabalho",
-      "start": "2020-02-13",
-      "status": "finished"
+      "start": "2020-02-27"
     },
     {
-      "id": "OtlZ6qM",
-      "name": "teste",
-      "description": "teste do teste ",
-      "category": "Trabalho",
-      "start": "2020-02-27",
-      "status": "today"
-    },
-    {
-      "id": "J8Z-x1o",
-      "name": "teste",
-      "description": "sdsadsadasdsadasd",
+      "id": 5,
+      "name": "dsdasd",
+      "description": "dfddddddddddddgg",
       "category": "Trabalho",
       "start": "2020-02-28",
       "status": "pending"
-    },
-    {
-      "id": "FVcn5OO",
-      "name": "teste",
-      "description": "dddddddddddddddddddddd",
-      "category": "Lazer",
-      "start": "2020-02-26"
-    },
-    {
-      "id": "2E8CzCN",
-      "name": "df",
-      "description": "dfsdfdsfdsfdfsd",
-      "category": "Trabalho",
-      "start": "2020-02-26",
-      "status": "late"
     }
   ]
 }

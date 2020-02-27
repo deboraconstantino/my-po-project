@@ -9,11 +9,15 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch'
 
 import { PoTableColumn } from '@portinari/portinari-ui';
+import { DatePipe } from '@angular/common';
 
 @Injectable()
 export class TasksService {
+  date = new Date();
+  newDate;
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient,
+    private datePipe: DatePipe){}
 
   getColumns(): Array<PoTableColumn> {
     return [
@@ -53,5 +57,18 @@ export class TasksService {
   removeTask(id) {
     return this.http.delete(`${TASKS_API}/tasks/${id}`)
     .catch(ErrorHandler.handleError)
+  }
+
+  updStatus(start, end, status) {
+    this.newDate = this.datePipe.transform(this.date, 'yyyy-MM-dd')
+    if (start < this.newDate && !end) {
+      return status = "late"
+    } else if (start == this.newDate && !end) {
+      return status = "today"
+    } else if (start > this.newDate && !end) {
+      return status = "pending"
+    } else if (end) {
+      return status = "finished"
+    }
   }
 }

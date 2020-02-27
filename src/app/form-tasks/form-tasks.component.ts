@@ -81,6 +81,7 @@ export class FormTasksComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.formTasks.valid) {
+      this.getStatus()
       if (this.formTasks.value.id) {
         this.tasksService.updateTask(this.formTasks.value)
         .subscribe(a => this.poNotification.success("Tarefa alterada com sucesso!"));
