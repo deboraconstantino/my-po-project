@@ -11,16 +11,6 @@
       "end": "2020-03-01"
     },
     {
-      "id": 3,
-      "name": "oiopipoi",
-      "description": "kkkkkkkkkkkkkkk",
-      "category": "Trabalho",
-      "start": "2020-03-06",
-      "done": true,
-      "status": "finished",
-      "end": "2020-03-01"
-    },
-    {
       "id": 4,
       "name": "lklk",
       "description": "kkkkkkkkkkkkkkkkkkkkkkkkkkkkk",
@@ -86,7 +76,19 @@
       "description": "sdsdsdsdsdsdssdsd",
       "category": "Lazer",
       "start": "2020-03-04",
-      "done": false
+      "done": true,
+      "end": "2020-03-01",
+      "status": "finished"
+    },
+    {
+      "id": 12,
+      "name": "teste",
+      "description": "teste do teste do teste",
+      "category": "Trabalho",
+      "start": "2020-03-04",
+      "done": true,
+      "status": "finished",
+      "end": "2020-03-01"
     }
   ]
 }
