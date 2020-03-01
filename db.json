@@ -1,16 +1,6 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "name": "kjkljlkjlkjkl",
-      "description": "kkkkkkkkkkkkkkkkkkkkk",
-      "category": "Trabalho",
-      "start": "2020-06-03",
-      "done": true,
-      "status": "finished",
-      "end": "2020-03-01"
-    },
-    {
       "id": 2,
       "name": "kkkkkkkkk",
       "description": "kkkkkkkkkkkkkkkk",
@@ -79,6 +69,24 @@
       "done": true,
       "status": "finished",
       "end": "2020-03-01"
+    },
+    {
+      "id": 10,
+      "name": "sdsadasdsdsdsds",
+      "description": "ddddddddddddddddddddddddd",
+      "category": "Trabalho",
+      "start": "2020-03-14",
+      "done": true,
+      "status": "finished",
+      "end": "2020-03-01"
+    },
+    {
+      "id": 11,
+      "name": "sdsdsd",
+      "description": "sdsdsdsdsdsdssdsd",
+      "category": "Lazer",
+      "start": "2020-03-04",
+      "done": false
     }
   ]
 }

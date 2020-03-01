@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import 'rxjs/add/operator/switchMap';
 
 import { PoTableColumn, PoTableAction, PoModalComponent, PoNotificationService, PoDialogService } from '@portinari/portinari-ui';
 
@@ -16,12 +18,16 @@ import { Task } from './task.model';
 export class TasksComponent implements OnInit {
   task: Task;
 
+  searchForm: FormGroup
+  searchControl: FormControl
+
   constructor(private tasksService: TasksService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private poNotification: PoNotificationService,
     private poAlert: PoDialogService,
-    private datePipe: DatePipe) { }
+    private datePipe: DatePipe,
+    private formBuilder: FormBuilder) { }
 
   columns: Array<PoTableColumn>;
   items: any;
@@ -37,11 +43,20 @@ export class TasksComponent implements OnInit {
       .map((dado) => ({... dado,
       status: this.tasksService.updStatus(dado.start, dado.end, dado.status)
     })))
+
+    this.searchControl = this.formBuilder.control('')
+    this.searchForm = this.formBuilder.group({
+      searchControl: this.searchControl
+    })
+
+    this.searchControl.valueChanges.switchMap(searchTerm => 
+      this.tasksService.getEndTasks(searchTerm))
+      .subscribe(dados => this.items = dados)
   }
 
   actions: Array<PoTableAction> = [
     { action: this.viewTask.bind(this), icon: 'po-icon po-icon-eye', label: 'Detalhes' },
-    { action: this.updateTask.bind(this), icon: 'po-icon po-icon-ok', label: 'Finalizar' }
+    { action: this.openDialogEnd.bind(this), icon: 'po-icon po-icon-ok', label: 'Finalizar' }
   ];
 
   @ViewChild(PoModalComponent, { static: true }) poModal: PoModalComponent;
@@ -63,6 +78,15 @@ export class TasksComponent implements OnInit {
       .subscribe(a => this.poNotification.success("Tarefa finalizada com sucesso!"));
       this.ngOnInit();
     }
+  }
+
+  openDialogEnd(id) {
+    this.poAlert.confirm({
+      title: "Finalizar tarefa",
+      message: "Confirma a conclusão da tarefa? Esta ação não poderá ser desfeita.",
+      confirm: () => this.updateTask(id),
+      cancel: () => this.refresh()
+    });
   }
 
   openDialog(id) {

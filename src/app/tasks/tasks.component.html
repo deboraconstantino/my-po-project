@@ -1,14 +1,17 @@
 <po-page-default>
   <div class="po-field-container-content po-page-filter-content">
+    <form [formGroup]="searchForm">
     <div class="po-field-icon-container-right">
       <span class="po-icon po-icon-search po-field-icon"></span>
     </div>
     <input
+      formControlName="searchControl"
       class="po-input po-input-icon-right ng-pristine ng-valid ng-touched"
       name="model"
       type="text"
       placeholder="Pesquisar"
     />
+    </form>
   </div>
 
   <po-container>
@@ -49,19 +52,37 @@
   </div>
 
     <po-info
-      class="po-sm-2"
-      p-label="#"
+      class="po-sm-6"
+      p-label="Código da Tarefa"
       [p-value]="detail?.id">
     </po-info>
 
     <po-info
       class="po-sm-6"
+      p-label="Nome da Tarefa"
+      [p-value]="detail?.name">
+    </po-info>
+
+    <po-info
+      class="po-sm-12"
       p-label="Descrição"
       [p-value]="detail?.description">
     </po-info>
 
+    <po-info
+      class="po-sm-6"
+      p-label="Categoria"
+      [p-value]="detail?.category">
+    </po-info>
+
+    <po-info
+      class="po-sm-3"
+      p-label="Data Limite"
+      [p-value]="detail?.start">
+    </po-info>
+
     <po-info *ngIf="detail?.end"
-      class="po-sm-4"
+      class="po-sm-3"
       p-label="Conclusão"
       [p-value]="detail?.end">
     </po-info>

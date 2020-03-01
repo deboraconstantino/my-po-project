@@ -6,7 +6,7 @@ import { ErrorHandler } from '../app.error-handler';
 import { Task } from './task.model';
 
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch'
+import 'rxjs/add/operator/catch';
 
 import { PoTableColumn } from '@portinari/portinari-ui';
 import { DatePipe } from '@angular/common';
@@ -23,7 +23,7 @@ export class TasksService {
     return [
       { property: 'name', label: 'Nome' },
       { property: 'category', label: 'Categoria' },
-      { property: 'start', label: 'Previsão de início', type: 'date' },
+      { property: 'start', label: 'Data Limite', type: 'date' },
       { property: 'end', label: 'Conclusão', type: 'date' },
       { property: 'status', type: 'label', width: '8%', labels: [
         { value: 'finished', color: 'color-11', label: 'Finalizada' },
@@ -35,12 +35,12 @@ export class TasksService {
   }
 
   getTasks() {
-    return this.http.get<Task[]>(`${TASKS_API}/tasks?done=false`)
+    return this.http.get<Task[]>(`${TASKS_API}/tasks`)
     .catch(ErrorHandler.handleError)
   }
 
-  getEndTasks() {
-    return this.http.get<Task[]>(`${TASKS_API}/tasks?done=true`)
+  getEndTasks(search?: string) {
+    return this.http.get<Task[]>(`${TASKS_API}/tasks`, {params: {q: search}})
     .catch(ErrorHandler.handleError)
   }
 

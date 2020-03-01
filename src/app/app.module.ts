@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ROUTES } from './app.routes';
 
 import { AppComponent } from './app.component';
-import { PoPageDynamicTableModule } from '@portinari/portinari-templates';
+import { PoPageDynamicTableModule, PoPageDynamicSearchModule } from '@portinari/portinari-templates';
 import { PoModalModule, PoModalComponent, PoPageModule, PoModule } from '@portinari/portinari-ui';
 
 import { TasksComponent } from './tasks/tasks.component';
@@ -33,7 +33,8 @@ import { CategoriesService } from './categories/categories.service';
     PoPageDynamicTableModule,
     PoPageModule,
     HttpClientModule,
-    PoModalModule
+    PoModalModule,
+    PoPageDynamicSearchModule
   ],
   providers: [TasksService, HttpClientModule, PoModalComponent, CategoriesService],
   bootstrap: [AppComponent]

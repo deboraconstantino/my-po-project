@@ -42,7 +42,8 @@ export class FormTasksComponent implements OnInit {
     private poNotification: PoNotificationService,
     private categoriesService: CategoriesService,
     private datePipe: DatePipe,
-    private router: Router) {}
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.categories = this.categoriesService.getCategories();
@@ -58,13 +59,16 @@ export class FormTasksComponent implements OnInit {
 
     this.formTasks = this.formBuilder.group({
       id: [this.tasks.id],
-      name: [this.tasks.name, [Validators.required]],
+      name: [
+        this.tasks.name,
+        [Validators.required, Validators.minLength(5), Validators.maxLength(15)]
+      ],
       description: [
         this.tasks.description,
         [
           Validators.required,
           Validators.minLength(15),
-          Validators.maxLength(30)
+          Validators.maxLength(80)
         ]
       ],
       category: [this.tasks.category, [Validators.required]],
@@ -133,6 +137,6 @@ export class FormTasksComponent implements OnInit {
   }
 
   close() {
-    this.router.navigate(['/'])
+    this.router.navigate(["/"]);
   }
 }
