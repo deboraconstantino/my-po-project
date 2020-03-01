@@ -5,5 +5,6 @@ export interface Task {
     category: string,
     start: string,
     end: string,
-    status: string
+    status: string,
+    done: boolean
 }

@@ -23,13 +23,13 @@ export class TasksService {
     return [
       { property: 'name', label: 'Nome' },
       { property: 'category', label: 'Categoria' },
-      { property: 'start', label: 'Início' },
-      { property: 'end', label: 'Conclusão' },
+      { property: 'start', label: 'Previsão de início', type: 'date' },
+      { property: 'end', label: 'Conclusão', type: 'date' },
       { property: 'status', type: 'label', width: '8%', labels: [
         { value: 'finished', color: 'color-11', label: 'Finalizada' },
         { value: 'late', color: 'color-07', label: 'Atrasada' },
         { value: 'pending', color: 'color-01', label: 'Pendente' },
-        { value: 'today', color: 'color-08', label: 'Para Hoje' }
+        { value: 'today', color: 'color-08', label: 'P/ Hoje' }
       ]}
     ];
   }
@@ -60,7 +60,8 @@ export class TasksService {
   }
 
   updStatus(start, end, status) {
-    this.newDate = this.datePipe.transform(this.date, 'yyyy-MM-dd')
+    start = this.datePipe.transform(start, 'dd/MM/yyyy')
+    this.newDate = this.datePipe.transform(this.date, 'dd/MM/yyyy')
     if (start < this.newDate && !end) {
       return status = "late"
     } else if (start == this.newDate && !end) {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Inject, Injectable } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
 import { map, switchMap } from "rxjs/operators";
@@ -8,13 +8,14 @@ import { PoNotificationService, PoComboOption } from "@portinari/portinari-ui";
 import { Task } from "../tasks/task.model";
 import { TasksService } from "../tasks/tasks.service";
 import { CategoriesService } from '../categories/categories.service';
-import { DatePipe } from '@angular/common';
 
 @Component({
   selector: "app-form-tasks",
   templateUrl: "./form-tasks.component.html",
   styleUrls: ["./form-tasks.component.css"]
 })
+
+@Injectable()
 export class FormTasksComponent implements OnInit {
   formTasks: FormGroup;
   submitted: boolean = false;
@@ -30,7 +31,8 @@ export class FormTasksComponent implements OnInit {
     category: "",
     start: "",
     end: "",
-    status: ""
+    status: "",
+    done: false
   };
 
   constructor(
@@ -38,8 +40,7 @@ export class FormTasksComponent implements OnInit {
     private tasksService: TasksService,
     private activatedroute: ActivatedRoute,
     private poNotification: PoNotificationService,
-    private categoriesService: CategoriesService,
-    private datePipe: DatePipe) {}
+    private categoriesService: CategoriesService) {}
 
   ngOnInit() {
     this.categories = this.categoriesService.getCategories();
@@ -69,18 +70,14 @@ export class FormTasksComponent implements OnInit {
     this.submitted = true;
     if (this.formTasks.valid) {
       if (this.formTasks.value.id) {
-        this.tasksService.updateTask(this.formTasks.value)
-        .subscribe(a => this.poNotification.success("Tarefa alterada com sucesso!"));
+        this.updateTask();
       } else {
-        this.tasksService.postItems(this.formTasks.value)
-        .subscribe(a => {
-          this.poNotification.success("Tarefa incluída com sucesso!"),
-          this.clear();
-        }); 
+        this.formTasks.value.done = this.tasks.done
+        this.inputTask();
       }
       } else {
-      this.poNotification.error(
-        "Por favor, preencher nome, data, descrição e categoria da tarefa!"
+        this.poNotification.error(
+          "Por favor, preencher nome, data, descrição e categoria da tarefa!"
       );
     }
   }
@@ -93,6 +90,19 @@ export class FormTasksComponent implements OnInit {
       start: task.start,
       category: task.category
     });
+  }
+
+  updateTask() {
+      this.tasksService.updateTask(this.formTasks.value)
+      .subscribe(a => this.poNotification.success("Tarefa alterada com sucesso!"));
+  }
+
+  inputTask() {
+    this.tasksService.postItems(this.formTasks.value)
+    .subscribe(a => {
+      this.poNotification.success("Tarefa incluída com sucesso!"),
+      this.clear();
+    }); 
   }
 
   clear() {

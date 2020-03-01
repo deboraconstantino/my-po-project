@@ -2,39 +2,33 @@
   "tasks": [
     {
       "id": 1,
-      "name": "Teste HOJE",
-      "description": "Teste hoje\nTeste hoje",
-      "category": "Lazer",
-      "start": "2020-02-27"
+      "name": "kjkljlkjlkjkl",
+      "description": "kkkkkkkkkkkkkkkkkkkkk",
+      "category": "Trabalho",
+      "start": "2020-06-03",
+      "done": true,
+      "status": "finished",
+      "end": "2020-03-01"
     },
     {
       "id": 2,
-      "name": "Teste ATRASADA",
-      "description": "Teste Atrasada\nTeste Atrasada",
+      "name": "kkkkkkkkk",
+      "description": "kkkkkkkkkkkkkkkk",
       "category": "Trabalho",
-      "start": "2020-02-26"
+      "start": "2020-03-13",
+      "done": true,
+      "status": "finished",
+      "end": "2020-03-01"
     },
     {
       "id": 3,
-      "name": "Teste PENDENTE",
-      "description": "Teste Pendente\nTeste Pendente",
+      "name": "oiopipoi",
+      "description": "kkkkkkkkkkkkkkk",
       "category": "Trabalho",
-      "start": "2020-02-28"
-    },
-    {
-      "id": 4,
-      "name": "Teste FINALIZADA",
-      "description": "Teste Finalizada\nTeste Finalizada",
-      "category": "Trabalho",
-      "start": "2020-02-27"
-    },
-    {
-      "id": 5,
-      "name": "dsdasd",
-      "description": "dfddddddddddddgg",
-      "category": "Trabalho",
-      "start": "2020-02-28",
-      "status": "pending"
+      "start": "2020-03-06",
+      "done": true,
+      "status": "finished",
+      "end": "2020-03-01"
     }
   ]
 }

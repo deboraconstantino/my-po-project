@@ -29,19 +29,20 @@ export class TasksComponent implements OnInit {
   action: string;
   actionOptions: Array<string>;
   date = new Date();
-  newDate;
+  start2
 
   ngOnInit() {
     this.columns = this.tasksService.getColumns();
     this.tasksService.getTasks()
     .subscribe(dados => this.items = dados
-      .map((dado) => ({... dado, start: this.datePipe.transform(dado.start, 'dd/MM/yyyy'),
-      status: this.tasksService.updStatus(dado.start, dado.end, dado.status)})))
+      .map((dado) => ({... dado,
+      status: this.tasksService.updStatus(dado.start, dado.end, dado.status)
+    })))
   }
 
   actions: Array<PoTableAction> = [
     { action: this.viewTask.bind(this), icon: 'po-icon po-icon-eye', label: 'Detalhes' },
-    { icon: 'po-icon po-icon-ok', label: 'Finalizar' }
+    { action: this.updateTask.bind(this), icon: 'po-icon po-icon-ok', label: 'Finalizar' }
   ];
 
   @ViewChild(PoModalComponent, { static: true }) poModal: PoModalComponent;
@@ -51,10 +52,19 @@ export class TasksComponent implements OnInit {
     this.poModal.open();
   }
 
+  updateTask(task) {
+    this.detail = task
+    this.detail.end = this.datePipe.transform(this.date, 'yyyy-MM-dd')
+    this.detail.done = true
+    this.detail.status = "finished"
+    this.tasksService.updateTask(this.detail)
+    .subscribe(a => this.poNotification.success("Tarefa concluída com sucesso!"));
+  }
+
   openDialog(id) {
     this.poAlert.confirm({
       title: "Excluir tarefa",
-      message: "Tem certeza de que deseja excluir essa tarefa?",
+      message: "Confirma a exclusão da tarefa?",
       confirm: () => this.remove(id),
       cancel: () => this.refresh()
     });
@@ -74,6 +84,8 @@ export class TasksComponent implements OnInit {
 
   refresh() {
     this.tasksService.getTasks().subscribe(dados => this.items = dados
-     .map((dado) => ({... dado, status: this.tasksService.updStatus(dado.start, dado.end, dado.status)})))
+    .map((dado) => ({... dado,
+    status: this.tasksService.updStatus(dado.start, dado.end, dado.status),
+    })))
   }
 }
