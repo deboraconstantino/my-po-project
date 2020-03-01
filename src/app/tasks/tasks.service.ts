@@ -35,7 +35,12 @@ export class TasksService {
   }
 
   getTasks() {
-    return this.http.get<Task[]>(`${TASKS_API}/tasks`)
+    return this.http.get<Task[]>(`${TASKS_API}/tasks?done=false`)
+    .catch(ErrorHandler.handleError)
+  }
+
+  getEndTasks() {
+    return this.http.get<Task[]>(`${TASKS_API}/tasks?done=true`)
     .catch(ErrorHandler.handleError)
   }
 
