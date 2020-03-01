@@ -109,6 +109,7 @@ export class TasksComponent implements OnInit {
     this.tasksService.removeTask(id)
     .subscribe(a => {
       this.poNotification.success("Tarefa excluída com sucesso!"),
+      this.poModal.close();
       this.refresh();
     });
   }

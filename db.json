@@ -1,56 +1,6 @@
 {
   "tasks": [
     {
-      "id": 2,
-      "name": "kkkkkkkkk",
-      "description": "kkkkkkkkkkkkkkkk",
-      "category": "Trabalho",
-      "start": "2020-03-13",
-      "done": true,
-      "status": "finished",
-      "end": "2020-03-01"
-    },
-    {
-      "id": 4,
-      "name": "lklk",
-      "description": "kkkkkkkkkkkkkkkkkkkkkkkkkkkkk",
-      "category": "Trabalho",
-      "start": "2020-02-01",
-      "done": true,
-      "status": "finished",
-      "end": "2020-03-01"
-    },
-    {
-      "id": 5,
-      "name": "oi",
-      "description": "kkkkkkkkkkkkkkkkkkkkkk",
-      "category": "Trabalho",
-      "start": "2020-02-01",
-      "done": true,
-      "status": "finished",
-      "end": "2020-03-01"
-    },
-    {
-      "id": 6,
-      "name": "oi",
-      "description": "kkkkkkkkkkkkkkkk",
-      "category": "Trabalho",
-      "start": "2020-03-14",
-      "status": "finished",
-      "end": "2020-03-01",
-      "done": true
-    },
-    {
-      "id": 7,
-      "name": "kjlkjlkj",
-      "description": "kkkkkkkkkkkkkkkkk",
-      "category": "Trabalho",
-      "start": "2020-03-04",
-      "done": true,
-      "status": "finished",
-      "end": "2020-03-01"
-    },
-    {
       "id": 8,
       "name": "kjkljlkj",
       "description": "kkkkkkkkkkkkkkkkkkkkk",
@@ -86,6 +36,16 @@
       "description": "teste do teste do teste",
       "category": "Trabalho",
       "start": "2020-03-04",
+      "done": true,
+      "status": "finished",
+      "end": "2020-03-01"
+    },
+    {
+      "id": 13,
+      "name": "teste",
+      "description": "kkkkkkkkkkkkkkkkkkkkkkkk",
+      "category": "Trabalho",
+      "start": "2020-03-01",
       "done": true,
       "status": "finished",
       "end": "2020-03-01"
