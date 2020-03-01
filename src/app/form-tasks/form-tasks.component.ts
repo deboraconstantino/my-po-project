@@ -1,6 +1,6 @@
 import { Component, OnInit, Injectable } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { map, switchMap } from "rxjs/operators";
 
 import { PoNotificationService, PoComboOption } from "@portinari/portinari-ui";
@@ -41,8 +41,8 @@ export class FormTasksComponent implements OnInit {
     private activatedroute: ActivatedRoute,
     private poNotification: PoNotificationService,
     private categoriesService: CategoriesService,
-    private datePipe: DatePipe
-  ) {}
+    private datePipe: DatePipe,
+    private router: Router) {}
 
   ngOnInit() {
     this.categories = this.categoriesService.getCategories();
@@ -130,5 +130,9 @@ export class FormTasksComponent implements OnInit {
 
   clear() {
     this.formTasks.reset();
+  }
+
+  close() {
+    this.router.navigate(['/'])
   }
 }

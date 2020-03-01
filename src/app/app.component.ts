@@ -11,7 +11,11 @@ export class AppComponent {
 
   readonly menus: Array<PoMenuItem> = [
     { label: 'Home', link: '/' },
-    { label: 'Incluir Tarefas', link: 'form-tasks' }
+    { label: 'Incluir Tarefas', link: 'form-tasks', action: this.teste },
+    { label: 'Tarefas Finalizadas', link: 'end-tasks' }
   ];
 
+  teste() {
+    console.log("teste")
+  }
 }

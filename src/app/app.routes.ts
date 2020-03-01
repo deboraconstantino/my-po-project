@@ -6,5 +6,6 @@ import { FormTasksComponent } from './form-tasks/form-tasks.component'
 export const ROUTES: Routes = [
     {path: '', component: TasksComponent},
     {path: 'form-tasks', component: FormTasksComponent},
-    {path: 'edit/:id', component: FormTasksComponent}
+    {path: 'edit/:id', component: FormTasksComponent},
+    {path: 'end-tasks', component: TasksComponent}
 ]

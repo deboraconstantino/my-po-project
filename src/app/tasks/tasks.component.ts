@@ -29,7 +29,6 @@ export class TasksComponent implements OnInit {
   action: string;
   actionOptions: Array<string>;
   date = new Date();
-  start2
 
   ngOnInit() {
     this.columns = this.tasksService.getColumns();
@@ -61,7 +60,8 @@ export class TasksComponent implements OnInit {
       this.detail.done = true
       this.detail.status = "finished"
       this.tasksService.updateTask(this.detail)
-      .subscribe(a => this.poNotification.success("Tarefa concluída com sucesso!"));
+      .subscribe(a => this.poNotification.success("Tarefa finalizada com sucesso!"));
+      this.ngOnInit();
     }
   }
 

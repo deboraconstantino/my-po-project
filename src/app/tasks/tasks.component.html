@@ -11,14 +11,15 @@
     />
   </div>
 
-  <po-table
-    [p-actions]="actions"
-    [p-columns]="columns"
-    [p-items]="items"
-    p-sort="true"
-    [p-striped]="true"
-  >
-  </po-table>
+  <po-container>
+    <po-table
+      [p-actions]="actions"
+      [p-columns]="columns"
+      [p-items]="items"
+      p-sort="true"
+      [p-striped]="true">
+    </po-table>
+  </po-container>
 
   <po-modal
     #modal
@@ -29,7 +30,7 @@
 
   <div>
     <div class="po-offset-sm-10">
-      <po-button
+      <po-button *ngIf="!detail?.end"
         (p-click)="edit(detail?.id)"
         p-label="Alterar"
         p-type="primary"

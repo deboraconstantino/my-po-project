@@ -36,7 +36,9 @@
       "description": "kkkkkkkkkkkkkkkkkkkkkkkkkkkkk",
       "category": "Trabalho",
       "start": "2020-02-01",
-      "done": false
+      "done": true,
+      "status": "finished",
+      "end": "2020-03-01"
     },
     {
       "id": 5,
@@ -57,6 +59,26 @@
       "status": "finished",
       "end": "2020-03-01",
       "done": true
+    },
+    {
+      "id": 7,
+      "name": "kjlkjlkj",
+      "description": "kkkkkkkkkkkkkkkkk",
+      "category": "Trabalho",
+      "start": "2020-03-04",
+      "done": true,
+      "status": "finished",
+      "end": "2020-03-01"
+    },
+    {
+      "id": 8,
+      "name": "kjkljlkj",
+      "description": "kkkkkkkkkkkkkkkkkkkkk",
+      "category": "Lazer",
+      "start": "2020-03-06",
+      "done": true,
+      "status": "finished",
+      "end": "2020-03-01"
     }
   ]
 }
