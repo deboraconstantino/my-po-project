@@ -54,11 +54,15 @@ export class TasksComponent implements OnInit {
 
   updateTask(task) {
     this.detail = task
-    this.detail.end = this.datePipe.transform(this.date, 'yyyy-MM-dd')
-    this.detail.done = true
-    this.detail.status = "finished"
-    this.tasksService.updateTask(this.detail)
-    .subscribe(a => this.poNotification.success("Tarefa concluída com sucesso!"));
+    if (this.detail.done == true) {
+      this.poNotification.error("Essa tarefa já foi finalizada.")
+    } else {
+      this.detail.end = this.datePipe.transform(this.date, 'yyyy-MM-dd')
+      this.detail.done = true
+      this.detail.status = "finished"
+      this.tasksService.updateTask(this.detail)
+      .subscribe(a => this.poNotification.success("Tarefa concluída com sucesso!"));
+    }
   }
 
   openDialog(id) {
@@ -84,8 +88,6 @@ export class TasksComponent implements OnInit {
 
   refresh() {
     this.tasksService.getTasks().subscribe(dados => this.items = dados
-    .map((dado) => ({... dado,
-    status: this.tasksService.updStatus(dado.start, dado.end, dado.status),
-    })))
+    .map((dado) => ({... dado, status: this.tasksService.updStatus(dado.start, dado.end, dado.status)})))
   }
 }
