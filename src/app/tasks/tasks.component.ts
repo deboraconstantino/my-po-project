@@ -50,7 +50,7 @@ export class TasksComponent implements OnInit {
     })
 
     this.searchControl.valueChanges.switchMap(searchTerm => 
-      this.tasksService.getEndTasks(searchTerm))
+      this.tasksService.getTasks(searchTerm))
       .subscribe(dados => this.items = dados
         .map((dado) => ({... dado,
           status: this.tasksService.updStatus(dado.start, dado.end, dado.status)

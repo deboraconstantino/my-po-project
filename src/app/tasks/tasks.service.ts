@@ -15,6 +15,7 @@ import { DatePipe } from '@angular/common';
 export class TasksService {
   date = new Date();
   newDate;
+  status = "false"
 
   constructor(private http: HttpClient,
     private datePipe: DatePipe){}
@@ -34,14 +35,13 @@ export class TasksService {
     ];
   }
 
-  getTasks() {
-    return this.http.get<Task[]>(`${TASKS_API}/tasks`)
+  getTasks(search: string = "") {
+    return this.http.get<Task[]>(`${TASKS_API}/tasks?done=${this.status}`, {params: {q: search}})
     .catch(ErrorHandler.handleError)
   }
 
-  getEndTasks(search?: string) {
-    return this.http.get<Task[]>(`${TASKS_API}/tasks`, {params: {q: search}})
-    .catch(ErrorHandler.handleError)
+  setStatus(status: string) {
+    this.status = status
   }
 
   postItems(tasks) {

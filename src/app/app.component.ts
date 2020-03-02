@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { PoMenuItem } from '@portinari/portinari-ui';
+import { TasksService } from './tasks/tasks.service';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +10,11 @@ import { PoMenuItem } from '@portinari/portinari-ui';
 })
 export class AppComponent {
 
-  readonly menus: Array<PoMenuItem> = [
-    { label: 'Home', link: '/' },
-    { label: 'Incluir Tarefas', link: 'form-tasks', action: this.teste },
-    { label: 'Tarefas Finalizadas', link: 'end-tasks' }
-  ];
+  constructor(private tasksService: TasksService) {}
 
-  teste() {
-    console.log("teste")
-  }
+  readonly menus: Array<PoMenuItem> = [
+    { label: 'Minhas Tarefas', link: '/', action: () => this.tasksService.setStatus("false") },
+    { label: 'Tarefas Finalizadas', link: 'end-tasks', action: () => this.tasksService.setStatus("true") },
+    { label: 'Incluir Tarefas', link: 'form-tasks' }
+  ];
 }

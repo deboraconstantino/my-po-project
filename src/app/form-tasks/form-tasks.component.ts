@@ -72,7 +72,8 @@ export class FormTasksComponent implements OnInit {
         ]
       ],
       category: [this.tasks.category, [Validators.required]],
-      start: [this.tasks.start, [Validators.required]]
+      start: [this.tasks.start, [Validators.required]],
+      done: [this.tasks.done]
     });
   }
 
