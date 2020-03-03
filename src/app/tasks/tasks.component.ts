@@ -79,7 +79,7 @@ export class TasksComponent implements OnInit {
       this.detail.status = "finished"
       this.tasksService.updateTask(this.detail)
       .subscribe(a => this.poNotification.success("Tarefa finalizada com sucesso!"));
-      this.ngOnInit();
+      this.refresh();
     }
   }
 

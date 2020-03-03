@@ -1,16 +1,6 @@
 {
   "tasks": [
     {
-      "id": 8,
-      "name": "kjkljlkj",
-      "description": "kkkkkkkkkkkkkkkkkkkkk",
-      "category": "Lazer",
-      "start": "2020-03-06",
-      "done": true,
-      "status": "finished",
-      "end": "2020-03-01"
-    },
-    {
       "id": 10,
       "name": "sdsadasdsdsdsds",
       "description": "ddddddddddddddddddddddddd",
@@ -80,17 +70,69 @@
       "description": "cvvvvvvvvvvvvvvvvvvvvvvvv",
       "category": "Trabalho",
       "start": "2020-03-12",
-      "done": false
-    },
-    {
-      "id": 18,
-      "name": "dfdfdfdddddddd",
-      "description": "dfdsffdfdfdfdfdfdff",
-      "category": "Trabalho",
-      "start": "2020-03-05",
       "done": true,
       "status": "finished",
       "end": "2020-03-02"
+    },
+    {
+      "id": 19,
+      "name": "Tarefa 1",
+      "description": "aaaaaaaaaaaaaaaaaaaaaaa",
+      "category": "Trabalho",
+      "start": "2020-03-04",
+      "done": true,
+      "status": "finished",
+      "end": "2020-03-03"
+    },
+    {
+      "id": 20,
+      "name": "Tarefa 2",
+      "description": "aaaaaaaaaaaaaaaaaaaaa",
+      "category": "Lazer",
+      "start": "2020-03-02",
+      "done": true,
+      "status": "finished",
+      "end": "2020-03-03"
+    },
+    {
+      "id": 21,
+      "name": "Tarefa 1",
+      "description": "Tarefa 1Tarefa 1Tarefa 1Tarefa 1Tarefa 1Tarefa 1Tarefa 1Tarefa 1",
+      "category": "Trabalho",
+      "start": "2020-03-03",
+      "done": false
+    },
+    {
+      "id": 22,
+      "name": "Tarefa 2",
+      "description": "Tarefa 2Tarefa 2Tarefa 2Tarefa 2Tarefa 2Tarefa 2Tarefa 2Tarefa 2Tarefa 2Tarefa 2",
+      "category": "Educação",
+      "start": "2020-03-04",
+      "done": false
+    },
+    {
+      "id": 23,
+      "name": "Tarefa 3",
+      "description": "Tarefa 3Tarefa 3Tarefa 3Tarefa 3Tarefa 3Tarefa 3Tarefa 3Tarefa 3Tarefa 3",
+      "category": "Outros",
+      "start": "2020-03-04",
+      "done": false
+    },
+    {
+      "id": 24,
+      "name": "Tarefa 4",
+      "description": "Tarefa 4Tarefa 4Tarefa 4Tarefa 4Tarefa 4Tarefa 4Tarefa 4Tarefa 4",
+      "category": "Trabalho",
+      "start": "2020-03-03",
+      "done": false
+    },
+    {
+      "id": 25,
+      "name": "Tarefa 5",
+      "description": "Tarefa 5Tarefa 5Tarefa 5Tarefa 5Tarefa 5Tarefa 5Tarefa 5Tarefa 5Tarefa 5Tarefa 5",
+      "category": "Trabalho",
+      "start": "2020-03-06",
+      "done": false
     }
   ]
 }
