@@ -13,7 +13,7 @@ export class AppComponent {
   constructor(private tasksService: TasksService) {}
 
   readonly menus: Array<PoMenuItem> = [
-    { label: 'Minhas Tarefas', link: '/', action: () => this.tasksService.setStatus("false") },
+    { label: 'Minhas Tarefas', link: 'tasks', action: () => this.tasksService.setStatus("false") },
     { label: 'Tarefas Finalizadas', link: 'end-tasks', action: () => this.tasksService.setStatus("true") },
     { label: 'Incluir Tarefas', link: 'form-tasks' }
   ];

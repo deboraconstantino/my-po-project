@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ROUTES } from './app.routes';
 
 import { AppComponent } from './app.component';
-import { PoPageDynamicTableModule, PoPageDynamicSearchModule } from '@portinari/portinari-templates';
+import { PoPageDynamicTableModule, PoPageDynamicSearchModule, PoPageLoginModule, PoModalPasswordRecoveryModule  } from '@portinari/portinari-templates';
 import { PoModalModule, PoModalComponent, PoPageModule, PoModule } from '@portinari/portinari-ui';
 
 import { TasksComponent } from './tasks/tasks.component';
@@ -16,13 +16,16 @@ import { FormTasksComponent } from './form-tasks/form-tasks.component';
 
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoriesService } from './categories/categories.service';
+import { LoginComponent } from './login/login.component';
+import { LoginService } from './login/login.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     TasksComponent,
     FormTasksComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +37,11 @@ import { CategoriesService } from './categories/categories.service';
     PoPageModule,
     HttpClientModule,
     PoModalModule,
-    PoPageDynamicSearchModule
+    PoPageDynamicSearchModule,
+    PoPageLoginModule,
+    PoModalPasswordRecoveryModule
   ],
-  providers: [TasksService, HttpClientModule, PoModalComponent, CategoriesService],
+  providers: [TasksService, HttpClientModule, PoModalComponent, CategoriesService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
