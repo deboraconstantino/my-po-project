@@ -138,6 +138,6 @@ export class FormTasksComponent implements OnInit {
   }
 
   close() {
-    this.router.navigate(["/"]);
+    this.router.navigate(["tasks"]);
   }
 }

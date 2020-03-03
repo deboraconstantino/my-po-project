@@ -133,6 +133,14 @@
       "category": "Trabalho",
       "start": "2020-03-06",
       "done": false
+    },
+    {
+      "id": 26,
+      "name": "Tarefa 6",
+      "description": "Tarefa 6Tarefa 6Tarefa 6Tarefa 6Tarefa 6Tarefa 6Tarefa 6Tarefa 6",
+      "category": "Educação",
+      "start": "2020-03-28",
+      "done": false
     }
   ]
 }
