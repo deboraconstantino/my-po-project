@@ -3,6 +3,7 @@ import { TasksComponent } from './tasks/tasks.component'
 import { FormTasksComponent } from './form-tasks/form-tasks.component'
 import { LoginComponent } from './login/login.component'
 import { AuthGuard } from './auth/auth.guard';
+import { CategoriesComponent } from './categories/categories.component';
 
 export const ROUTES: Routes = [
     {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -10,5 +11,6 @@ export const ROUTES: Routes = [
     {path: 'form-tasks', component: FormTasksComponent, canActivate: [AuthGuard]},
     {path: 'edit/:id', component: FormTasksComponent, canActivate: [AuthGuard]},
     {path: 'end-tasks', component: TasksComponent, canActivate: [AuthGuard]},
+    {path: 'categories', component: CategoriesComponent, canActivate: [AuthGuard]},
     {path: 'login', component: LoginComponent}
 ]

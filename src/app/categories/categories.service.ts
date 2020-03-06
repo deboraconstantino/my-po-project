@@ -3,7 +3,7 @@ import { PoComboOption } from '@portinari/portinari-ui';
 
 @Injectable()
 export class CategoriesService {
-    getCategories(): Array<PoComboOption>{
+    getCategories(){
         return [
           { label: 'Lazer', value: 'Lazer' },
           { label: 'Trabalho', value: 'Trabalho' },

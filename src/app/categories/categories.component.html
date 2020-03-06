@@ -1,1 +1,10 @@
-<p>categories works!</p>
+<po-page-default>
+  <div class="po-row">
+    <div class="po-offset-xl-2 po-offset-lg-2 po-xl-7 po-lg-7">
+      <po-divider p-label="Minhas Categorias"> </po-divider>
+      <po-widget class="po-lg-12 po-xl-12" *ngFor="let category of categories">
+        {{ category.value }}
+      </po-widget>
+    </div>
+  </div>
+</po-page-default>
