@@ -41,7 +41,11 @@ import { LoginService } from './login/login.service';
     PoPageLoginModule,
     PoModalPasswordRecoveryModule
   ],
-  providers: [TasksService, HttpClientModule, PoModalComponent, CategoriesService, LoginService],
+  providers: [TasksService,
+    HttpClientModule,
+    PoModalComponent,
+    CategoriesService,
+    LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

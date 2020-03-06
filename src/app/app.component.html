@@ -1,7 +1,7 @@
 <div class="po-wrapper">
   <po-toolbar p-title="Minhas Tarefas"></po-toolbar>
 
-  <po-menu
+  <po-menu *ngIf="authOk$ | async"
     [p-menus]="menus"
     [p-collapsed]="false"
   >
