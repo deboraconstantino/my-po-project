@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
   readonly menus: Array<PoMenuItem> = [
     { label: 'Minhas Tarefas', link: 'tasks', action: () => this.tasksService.setStatus("false") },
     { label: 'Tarefas Finalizadas', link: 'end-tasks', action: () => this.tasksService.setStatus("true") },
-    { label: 'Incluir Tarefas', link: 'form-tasks' }
+    { label: 'Incluir Tarefas', link: 'form-tasks' },
+    { label: 'Logout', link: '/' }
   ];
 }

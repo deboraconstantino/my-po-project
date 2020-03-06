@@ -19,4 +19,9 @@ export class LoginService {
     get isLoggedIn() {
         return this.loggedIn.asObservable();
     }
+
+    doLogout() {
+        this.router.navigate(['/login']);
+        return false;
+    }
 }
