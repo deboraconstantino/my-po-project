@@ -100,15 +100,19 @@
       "description": "Tarefa 1Tarefa 1Tarefa 1Tarefa 1Tarefa 1Tarefa 1Tarefa 1Tarefa 1",
       "category": "Trabalho",
       "start": "2020-03-03",
-      "done": false
+      "done": true,
+      "status": "finished",
+      "end": "2020-03-06"
     },
     {
       "id": 22,
-      "name": "Tarefa 2",
+      "name": "Tarefa 2 alter",
       "description": "Tarefa 2Tarefa 2Tarefa 2Tarefa 2Tarefa 2Tarefa 2Tarefa 2Tarefa 2Tarefa 2Tarefa 2",
       "category": "Educação",
-      "start": "2020-03-04",
-      "done": false
+      "start": "2020-03-06",
+      "done": true,
+      "status": "finished",
+      "end": "2020-03-06"
     },
     {
       "id": 23,
@@ -131,7 +135,7 @@
       "name": "Tarefa 5",
       "description": "Tarefa 5Tarefa 5Tarefa 5Tarefa 5Tarefa 5Tarefa 5Tarefa 5Tarefa 5Tarefa 5Tarefa 5",
       "category": "Trabalho",
-      "start": "2020-03-06",
+      "start": "2020-03-05",
       "done": false
     },
     {
@@ -144,10 +148,26 @@
     },
     {
       "id": 27,
-      "name": "kjlkj",
-      "description": "kjkjkjkjkkkkkkkkkkkkkkkk",
+      "name": "Tarefa 22 alt",
+      "description": "sudhasuhdasudhasudhsuh",
+      "category": "Trabalho",
+      "start": "2020-03-07",
+      "done": false
+    },
+    {
+      "id": 28,
+      "name": "hello",
+      "description": "sadasdsadasdasdsa",
       "category": "Educação",
       "start": "2020-03-21",
+      "done": false
+    },
+    {
+      "id": 29,
+      "name": "sdsadasd",
+      "description": "dddddddddddddddddd",
+      "category": "Lazer",
+      "start": "2020-03-07",
       "done": false
     }
   ]

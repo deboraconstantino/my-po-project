@@ -10,7 +10,7 @@ import {
   PoModalComponent,
   PoNotificationService,
   PoDialogService,
-  PoRadioGroupOption,
+  PoRadioGroupOption
 } from "@portinari/portinari-ui";
 
 import { TasksService } from "./tasks.service";
@@ -43,34 +43,33 @@ export class TasksComponent implements OnInit {
   action: string;
   actionOptions: Array<string>;
   date = new Date();
+  option;
 
-  readonly options: Array<PoRadioGroupOption> = [
+  readonly options: Array<any> = [
     { label: "Tudo", value: "all" },
     { label: "Tarefa", value: "task" },
     { label: "Categoria", value: "category" },
-    { label: "Data", value: "date" }
+    { label: "Data Limite", value: "date" }
   ];
 
   ngOnInit() {
     this.columns = this.tasksService.getColumns();
-    this.tasksService
-      .getTasks()
-      .subscribe(
-        dados =>
-          (this.items = dados.map(dado => ({
-            ...dado,
-            status: this.tasksService.updStatus(
-              dado.start,
-              dado.end,
-              dado.status
-            )
-          })))
-      );
+    this.tasksService.getTasks().subscribe(
+      dados =>
+        (this.items = dados.map(dado => ({
+          ...dado,
+          status: this.tasksService.updStatus(dado.start, dado.end, dado.status)
+        })))
+    );
 
     this.searchControl = this.formBuilder.control("");
     this.searchForm = this.formBuilder.group({
-      searchControl: this.searchControl
+      searchControl: this.searchControl.value
     });
+  }
+
+  onClick() {
+    console.log(this.searchForm.value.searchControl);
   }
 
   actions: Array<PoTableAction> = [
@@ -130,7 +129,7 @@ export class TasksComponent implements OnInit {
   }
 
   edit(id) {
-    this.router.navigate(["edit", id], { relativeTo: this.activatedRoute });
+    this.router.navigate(["/edit", id], { relativeTo: this.activatedRoute });
   }
 
   remove(id) {
@@ -142,9 +141,24 @@ export class TasksComponent implements OnInit {
   }
 
   refresh() {
-    this.tasksService
-      .getTasks()
-      .subscribe(
+    this.tasksService.getTasks().subscribe(
+      dados =>
+        (this.items = dados.map(dado => ({
+          ...dado,
+          status: this.tasksService.updStatus(dado.start, dado.end, dado.status)
+        })))
+    );
+  }
+
+  alter(value) {
+    if (value == "category") {
+      this.option = "category";
+    } else if (value == "task") {
+      this.option = "task";
+    } else if (value == "date") {
+      this.option = "date";
+    } else if (value == "all") {
+      this.tasksService.getTasks().subscribe(
         dados =>
           (this.items = dados.map(dado => ({
             ...dado,
@@ -155,56 +169,46 @@ export class TasksComponent implements OnInit {
             )
           })))
       );
+    }
   }
 
-  change(value) {
-    if (value == "category") {
-      this.searchControl.valueChanges
-        .switchMap(searchTerm =>
-          this.tasksService.getTasksByCategory(searchTerm)
-        )
-        .subscribe(
-          dados =>
-            (this.items = dados.map(dado => ({
-              ...dado,
-              status: this.tasksService.updStatus(
-                dado.start,
-                dado.end,
-                dado.status
-              )
-            })))
-        );
-    } else if (value == "task") {
-      this.searchControl.valueChanges
-        .switchMap(searchTerm => this.tasksService.getTasksByName(searchTerm))
-        .subscribe(
-          dados =>
-            (this.items = dados.map(dado => ({
-              ...dado,
-              status: this.tasksService.updStatus(
-                dado.start,
-                dado.end,
-                dado.status
-              )
-            })))
-        );
-    } else if (value == "date") {
-      this.searchControl.valueChanges
-        .switchMap(searchTerm => this.tasksService.getTasksByDate(searchTerm))
-        .subscribe(
-          dados =>
-            (this.items = dados.map(dado => ({
-              ...dado,
-              status: this.tasksService.updStatus(
-                dado.start,
-                dado.end,
-                dado.status
-              )
-            })))
-        );
-    } else {
+  change() {
+    if (this.option == "category") {
       this.tasksService
-        .getTasks()
+        .getTasksByCategory(this.searchForm.value.searchControl)
+        .subscribe(
+          dados =>
+            (this.items = dados.map(dado => ({
+              ...dado,
+              status: this.tasksService.updStatus(
+                dado.start,
+                dado.end,
+                dado.status
+              )
+            })))
+        );
+    } else if (this.option == "task") {
+      this.tasksService
+        .getTasksByName(this.searchForm.value.searchControl)
+        .subscribe(
+          dados =>
+            (this.items = dados.map(dado => ({
+              ...dado,
+              status: this.tasksService.updStatus(
+                dado.start,
+                dado.end,
+                dado.status
+              )
+            })))
+        );
+    } else if (this.option == "date") {
+      this.tasksService
+        .getTasksByDate(
+          this.datePipe.transform(
+            this.searchForm.value.searchControl,
+            "yyyy-dd-MM"
+          )
+        )
         .subscribe(
           dados =>
             (this.items = dados.map(dado => ({

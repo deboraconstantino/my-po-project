@@ -23,6 +23,7 @@ export class FormTasksComponent implements OnInit {
   date = new Date();
   newDate;
   atStart: string;
+  items;
 
   tasks: Task = {
     id: "",
@@ -83,11 +84,7 @@ export class FormTasksComponent implements OnInit {
 
     if (this.formTasks.valid) {
       if (this.formTasks.value.id) {
-        if (this.validDate(this.formTasks.value.start)) {
-          this.updateTask();
-        } else {
-          this.poNotification.error("Data inválida, tente novamente.");
-        }
+        this.updateTask();
       } else if (!this.formTasks.value.id) {
         if (this.validDate(this.formTasks.value.start)) {
           this.formTasks.value.done = this.tasks.done;
@@ -119,12 +116,21 @@ export class FormTasksComponent implements OnInit {
       .subscribe(a =>
         this.poNotification.success("Tarefa alterada com sucesso!")
       );
+    this.router.navigate(["/tasks"]);
   }
 
   inputTask() {
     this.tasksService.postItems(this.formTasks.value).subscribe(a => {
       this.poNotification.success("Tarefa incluída com sucesso!"), this.clear();
     });
+    this.router.navigate(["/tasks"]);
+    this.tasksService.getTasks().subscribe(
+      dados =>
+        (this.items = dados.map(dado => ({
+          ...dado,
+          status: this.tasksService.updStatus(dado.start, dado.end, dado.status)
+        })))
+    );
   }
 
   validDate(date) {
@@ -138,7 +144,7 @@ export class FormTasksComponent implements OnInit {
   }
 
   close() {
-    this.tasksService.setStatus("false")
+    this.tasksService.setStatus("false");
     this.router.navigate(["/tasks"]);
   }
 }

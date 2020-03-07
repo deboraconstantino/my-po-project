@@ -3,19 +3,16 @@
     <po-divider 
       p-label="Filtrar por:" >
     </po-divider>
-    <div class="po-offset-xl-1 po-offset-lg-1 po-xl-4 po-lg-4">
+    <div class="po-xl-8 po-lg-8">
       <po-radio-group
         name="radioGroupBasic"
         [p-options]="options"
-        (p-change)="change($event)"
+        (p-change)="alter($event)"
       >
       </po-radio-group> </div>
-    <div class="po-offset-xl-3 po-offset-lg-3 po-xl-4 po-lg-4">
+    <div class="po-xl-3 po-lg-3">
       <div class="po-field-container-content po-page-filter-content">
         <form [formGroup]="searchForm">
-          <div class="po-field-icon-container-right">
-            <span class="po-icon po-icon-search po-field-icon"></span>
-          </div>
           <input
             formControlName="searchControl"
             class="po-input po-input-icon-right ng-pristine ng-valid ng-touched"
@@ -23,6 +20,11 @@
             type="text"
             placeholder="Pesquisar"
           />
+          <po-button
+            p-icon="po-icon po-icon-search"
+            (p-click)="change()"
+            p-small>
+          </po-button>
         </form>
       </div>
     </div>
