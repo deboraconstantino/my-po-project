@@ -16,6 +16,7 @@ export class TasksService {
   date = new Date();
   newDate;
   status = "false"
+  date1
 
   constructor(private http: HttpClient,
     private datePipe: DatePipe){}
@@ -35,13 +36,28 @@ export class TasksService {
     ];
   }
 
-  getTasks(search: string = "") {
-    return this.http.get<Task[]>(`${TASKS_API}/tasks?done=${this.status}`, {params: {q: search}})
+  getTasks() {
+    return this.http.get<Task[]>(`${TASKS_API}/tasks?done=${this.status}`)
+    .catch(ErrorHandler.handleError)
+  }
+
+  getTasksByCategory(category?) {
+    return this.http.get<Task[]>(`${TASKS_API}/tasks?done=${this.status}&category=${category}`)
+    .catch(ErrorHandler.handleError)
+  }
+
+  getTasksByName(name?) {
+    return this.http.get<Task[]>(`${TASKS_API}/tasks?done=${this.status}&name=${name}`)
     .catch(ErrorHandler.handleError)
   }
 
   setStatus(status: string) {
     this.status = status
+  }
+
+  getTasksByDate(date?) {
+    return this.http.get<Task[]>(`${TASKS_API}/tasks?done=${this.status}&start=${date}`)
+    .catch(ErrorHandler.handleError)
   }
 
   postItems(tasks) {

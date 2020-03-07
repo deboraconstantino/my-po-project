@@ -1,5 +1,5 @@
 <div class="po-wrapper">
-  <po-toolbar p-title="Minhas Tarefas"></po-toolbar>
+  <po-toolbar p-title="Minhas Tarefas"  *ngIf="authOk$ | async"></po-toolbar>
 
   <po-menu *ngIf="authOk$ | async"
     [p-menus]="menus"

@@ -1,18 +1,33 @@
 <po-page-default>
-  <div class="po-field-container-content po-page-filter-content">
-    <form [formGroup]="searchForm">
-    <div class="po-field-icon-container-right">
-      <span class="po-icon po-icon-search po-field-icon"></span>
+  <po-container>
+    <po-divider 
+      p-label="Filtrar por:" >
+    </po-divider>
+    <div class="po-offset-xl-1 po-offset-lg-1 po-xl-4 po-lg-4">
+      <po-radio-group
+        name="radioGroupBasic"
+        [p-options]="options"
+        (p-change)="change($event)"
+      >
+      </po-radio-group> </div>
+    <div class="po-offset-xl-3 po-offset-lg-3 po-xl-4 po-lg-4">
+      <div class="po-field-container-content po-page-filter-content">
+        <form [formGroup]="searchForm">
+          <div class="po-field-icon-container-right">
+            <span class="po-icon po-icon-search po-field-icon"></span>
+          </div>
+          <input
+            formControlName="searchControl"
+            class="po-input po-input-icon-right ng-pristine ng-valid ng-touched"
+            name="model"
+            type="text"
+            placeholder="Pesquisar"
+          />
+        </form>
+      </div>
     </div>
-    <input
-      formControlName="searchControl"
-      class="po-input po-input-icon-right ng-pristine ng-valid ng-touched"
-      name="model"
-      type="text"
-      placeholder="Pesquisar"
-    />
-    </form>
-  </div>
+    </po-container
+  ><br />
 
   <po-container>
     <po-table
@@ -20,7 +35,8 @@
       [p-columns]="columns"
       [p-items]="items"
       p-sort="true"
-      [p-striped]="true">
+      [p-striped]="true"
+    >
     </po-table>
   </po-container>
 
@@ -30,61 +46,54 @@
     p-click-out="true"
     p-title="Detalhes sobre {{ detail?.name }}"
   >
+    <div>
+      <div class="po-offset-sm-10">
+        <po-button
+          *ngIf="!detail?.end"
+          (p-click)="edit(detail?.id)"
+          p-label="Alterar"
+          p-type="primary"
+          p-icon="po-icon po-icon-edit"
+        >
+        </po-button>
 
-  <div>
-    <div class="po-offset-sm-10">
-      <po-button *ngIf="!detail?.end"
-        (p-click)="edit(detail?.id)"
-        p-label="Alterar"
-        p-type="primary"
-        p-icon="po-icon po-icon-edit">
-      </po-button>
-
-      <po-button *ngIf="detail?.end"
-        (p-click)="openDialog(detail?.id)"
-        p-label="Excluir"
-        p-type="danger"
-        p-icon="po-icon po-icon-clear-content">
-      </po-button>
+        <po-button
+          *ngIf="detail?.end"
+          (p-click)="openDialog(detail?.id)"
+          p-label="Excluir"
+          p-type="danger"
+          p-icon="po-icon po-icon-clear-content"
+        >
+        </po-button>
+      </div>
+      <po-divider> </po-divider>
     </div>
-    <po-divider>
-    </po-divider>
-  </div>
 
-    <po-info
-      class="po-sm-6"
-      p-label="Código da Tarefa"
-      [p-value]="detail?.id">
+    <po-info class="po-sm-6" p-label="Código da Tarefa" [p-value]="detail?.id">
     </po-info>
 
-    <po-info
-      class="po-sm-6"
-      p-label="Nome da Tarefa"
-      [p-value]="detail?.name">
+    <po-info class="po-sm-6" p-label="Nome da Tarefa" [p-value]="detail?.name">
     </po-info>
 
     <po-info
       class="po-sm-12"
       p-label="Descrição"
-      [p-value]="detail?.description">
+      [p-value]="detail?.description"
+    >
+    </po-info>
+
+    <po-info class="po-sm-6" p-label="Categoria" [p-value]="detail?.category">
+    </po-info>
+
+    <po-info class="po-sm-3" p-label="Data Limite" [p-value]="detail?.start">
     </po-info>
 
     <po-info
-      class="po-sm-6"
-      p-label="Categoria"
-      [p-value]="detail?.category">
-    </po-info>
-
-    <po-info
-      class="po-sm-3"
-      p-label="Data Limite"
-      [p-value]="detail?.start">
-    </po-info>
-
-    <po-info *ngIf="detail?.end"
+      *ngIf="detail?.end"
       class="po-sm-3"
       p-label="Conclusão"
-      [p-value]="detail?.end">
+      [p-value]="detail?.end"
+    >
     </po-info>
   </po-modal>
 </po-page-default>

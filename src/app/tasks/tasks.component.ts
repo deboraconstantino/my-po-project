@@ -4,7 +4,7 @@ import { DatePipe } from '@angular/common';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import 'rxjs/add/operator/switchMap';
 
-import { PoTableColumn, PoTableAction, PoModalComponent, PoNotificationService, PoDialogService } from '@portinari/portinari-ui';
+import { PoTableColumn, PoTableAction, PoModalComponent, PoNotificationService, PoDialogService, PoRadioGroupOption, PoCheckboxGroupOption } from '@portinari/portinari-ui';
 
 import { TasksService } from './tasks.service';
 import { Task } from './task.model';
@@ -36,6 +36,12 @@ export class TasksComponent implements OnInit {
   actionOptions: Array<string>;
   date = new Date();
 
+  readonly options: Array<PoRadioGroupOption> = [
+    { label: 'Tarefa', value: 'task' },
+    { label: 'Categoria', value: 'category' },
+    { label: 'Data', value: 'date' }
+  ];
+
   ngOnInit() {
     this.columns = this.tasksService.getColumns();
     this.tasksService.getTasks()
@@ -48,13 +54,6 @@ export class TasksComponent implements OnInit {
     this.searchForm = this.formBuilder.group({
       searchControl: this.searchControl
     })
-
-    this.searchControl.valueChanges.switchMap(searchTerm => 
-      this.tasksService.getTasks(searchTerm))
-      .subscribe(dados => this.items = dados
-        .map((dado) => ({... dado,
-          status: this.tasksService.updStatus(dado.start, dado.end, dado.status)
-        })))
   }
 
   actions: Array<PoTableAction> = [
@@ -117,5 +116,30 @@ export class TasksComponent implements OnInit {
   refresh() {
     this.tasksService.getTasks().subscribe(dados => this.items = dados
     .map((dado) => ({... dado, status: this.tasksService.updStatus(dado.start, dado.end, dado.status)})))
+  }
+
+  change(value) {
+    if (value == "category") {
+      this.searchControl.valueChanges.switchMap(searchTerm => 
+        this.tasksService.getTasksByCategory(searchTerm))
+        .subscribe(dados => this.items = dados
+          .map((dado) => ({... dado,
+            status: this.tasksService.updStatus(dado.start, dado.end, dado.status)
+          })))
+    } else if (value == "task") {
+      this.searchControl.valueChanges.switchMap(searchTerm => 
+        this.tasksService.getTasksByName(searchTerm))
+        .subscribe(dados => this.items = dados
+          .map((dado) => ({... dado,
+            status: this.tasksService.updStatus(dado.start, dado.end, dado.status)
+          })))
+    } else {
+      this.searchControl.valueChanges.switchMap(searchTerm => 
+        this.tasksService.getTasksByDate(searchTerm))
+        .subscribe(dados => this.items = dados
+          .map((dado) => ({... dado,
+            status: this.tasksService.updStatus(dado.start, dado.end, dado.status)
+          })))
+    }
   }
 }

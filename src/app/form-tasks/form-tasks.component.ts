@@ -138,6 +138,7 @@ export class FormTasksComponent implements OnInit {
   }
 
   close() {
-    this.router.navigate(["tasks"]);
+    this.tasksService.setStatus("false")
+    this.router.navigate(["/tasks"]);
   }
 }
