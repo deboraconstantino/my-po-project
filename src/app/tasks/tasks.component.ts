@@ -68,10 +68,6 @@ export class TasksComponent implements OnInit {
     });
   }
 
-  onClick() {
-    console.log(this.searchForm.value.searchControl);
-  }
-
   actions: Array<PoTableAction> = [
     {
       action: this.viewTask.bind(this),

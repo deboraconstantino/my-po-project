@@ -16,7 +16,6 @@ export class TasksService {
   date = new Date();
   newDate;
   status = "false"
-  date1
 
   constructor(private http: HttpClient,
     private datePipe: DatePipe){}
