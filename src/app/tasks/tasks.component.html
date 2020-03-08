@@ -1,34 +1,37 @@
 <po-page-default>
   <po-container>
-    <po-divider 
-      p-label="Filtrar por:" >
-    </po-divider>
-    <div class="po-xl-8 po-lg-8">
-      <po-radio-group
-        name="radioGroupBasic"
-        [p-options]="options"
-        (p-change)="alter($event)"
-      >
-      </po-radio-group> </div>
-    <div class="po-xl-3 po-lg-3">
-      <div class="po-field-container-content po-page-filter-content">
-        <form [formGroup]="searchForm">
-          <input
-            formControlName="searchControl"
-            class="po-input po-input-icon-right ng-pristine ng-valid ng-touched"
-            name="model"
-            type="text"
-            placeholder="Pesquisar"
-          />
-          <po-button
-            p-icon="po-icon po-icon-search"
-            (p-click)="change()"
-            p-small>
-          </po-button>
-        </form>
+    <po-divider p-label="Filtrar por:"> </po-divider>
+    <div class="po-row">
+      <div class="po-lg-6">
+        <po-radio-group
+          p-columns="4"
+          name="radioGroupBasic"
+          [p-options]="options"
+          (p-change)="alter($event)"
+        >
+        </po-radio-group>
       </div>
-    </div>
-    </po-container
+      <div class="po-offset-lg-3">
+        <div class="po-field-container-content po-page-filter-content">
+          <div class="po-field-icon-container-right">
+            <span
+              (click)="change()"
+              class="po-icon po-icon-search po-field-icon"
+            ></span>
+          </div>
+          <form [formGroup]="searchForm">
+            <input
+              (keyup.enter)="change()"
+              formControlName="searchControl"
+              class="po-input po-input-icon-right ng-pristine ng-valid ng-touched"
+              name="model"
+              type="text"
+              placeholder="Pesquisar"
+            />
+          </form>
+        </div>
+      </div>
+    </div> </po-container
   ><br />
 
   <po-container>

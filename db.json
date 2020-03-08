@@ -11,16 +11,6 @@
       "end": "2020-03-01"
     },
     {
-      "id": 11,
-      "name": "sdsdsd",
-      "description": "sdsdsdsdsdsdssdsd",
-      "category": "Lazer",
-      "start": "2020-03-04",
-      "done": true,
-      "end": "2020-03-01",
-      "status": "finished"
-    },
-    {
       "id": 12,
       "name": "teste",
       "description": "teste do teste do teste",
@@ -116,11 +106,13 @@
     },
     {
       "id": 23,
-      "name": "Tarefa 3",
+      "name": "Tarefa 3 kj",
       "description": "Tarefa 3Tarefa 3Tarefa 3Tarefa 3Tarefa 3Tarefa 3Tarefa 3Tarefa 3Tarefa 3",
       "category": "Outros",
       "start": "2020-03-04",
-      "done": false
+      "done": true,
+      "status": "finished",
+      "end": "2020-03-07"
     },
     {
       "id": 24,
@@ -168,6 +160,14 @@
       "description": "dddddddddddddddddd",
       "category": "Lazer",
       "start": "2020-03-07",
+      "done": false
+    },
+    {
+      "id": 30,
+      "name": "kdjkasljdlaks",
+      "description": "sadasdasdasdasdasd",
+      "category": "Outros",
+      "start": "2020-03-08",
       "done": false
     }
   ]

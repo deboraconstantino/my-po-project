@@ -46,7 +46,7 @@ export class TasksComponent implements OnInit {
   option;
 
   readonly options: Array<any> = [
-    { label: "Tudo", value: "all" },
+    { label: "Todas", value: "all" },
     { label: "Tarefa", value: "task" },
     { label: "Categoria", value: "category" },
     { label: "Data Limite", value: "date" }
