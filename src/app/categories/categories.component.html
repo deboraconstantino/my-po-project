@@ -2,9 +2,17 @@
   <div class="po-row">
     <div class="po-offset-xl-2 po-offset-lg-2 po-xl-7 po-lg-7">
       <po-divider p-label="Minhas Categorias"> </po-divider>
-      <po-widget class="po-lg-12 po-xl-12" *ngFor="let category of categories">
-        {{ category.name }}
-      </po-widget>
+      <div *ngFor="let category of categories">
+        <po-widget
+          class="po-lg-6 po-xl-6"
+          p-primary-label="Alterar"
+          p-secondary-label="Excluir"
+          (p-primary-action)="edit(category?.id)"
+        >
+          <div class="po-font-subtitle po-text-center">{{ category.name }}</div>
+          <div class="po-font-text-smaller po-text-center">{{ category.status }}</div>
+        </po-widget>
+      </div>
     </div>
   </div>
 </po-page-default>

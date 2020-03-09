@@ -14,5 +14,6 @@ export const ROUTES: Routes = [
     {path: 'end-tasks', component: TasksComponent, canActivate: [AuthGuard]},
     {path: 'categories', component: CategoriesComponent, canActivate: [AuthGuard]},
     {path: 'form-categories', component: FormCategoriesComponent, canActivate: [AuthGuard]},
+    {path: 'edit-category/:id', component: FormCategoriesComponent, canActivate: [AuthGuard]},
     {path: 'login', component: LoginComponent}
 ]

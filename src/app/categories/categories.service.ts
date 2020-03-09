@@ -20,4 +20,14 @@ export class CategoriesService {
     return this.http.post<Category[]>(`${TASKS_API}/categories`, categories)
     .catch(ErrorHandler.handleError)
   }
+
+  getCategoriesById(id: string) {
+    return this.http.get<Category[]>(`${TASKS_API}/categories/${id}`)
+    .catch(ErrorHandler.handleError)
+  }
+
+  putCategory(category) {
+    return this.http.put(`${TASKS_API}/categories/${category.id}`, category)
+    .catch(ErrorHandler.handleError)
+  }
 }
