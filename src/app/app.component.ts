@@ -49,6 +49,9 @@ export class AppComponent implements OnInit {
         { label: "Categorias",
           link: "categories",
           action: () => this.categoriesService.getCategories()
+        },
+        { label: "Incluir categoria",
+          link: "form-categories"
         }
       ]
     },

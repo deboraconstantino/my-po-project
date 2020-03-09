@@ -184,6 +184,11 @@
       "id": 1,
       "name": "Lazer",
       "status": "enabled"
+    },
+    {
+      "id": 2,
+      "name": "Outros",
+      "status": "enabled"
     }
   ]
 }

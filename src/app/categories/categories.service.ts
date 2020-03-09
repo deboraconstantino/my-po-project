@@ -15,4 +15,9 @@ export class CategoriesService {
     return this.http.get<Category[]>(`${TASKS_API}/categories`)
     .catch(ErrorHandler.handleError)
   }
+
+  postCategories(categories) {
+    return this.http.post<Category[]>(`${TASKS_API}/categories`, categories)
+    .catch(ErrorHandler.handleError)
+  }
 }

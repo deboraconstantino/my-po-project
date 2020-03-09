@@ -18,6 +18,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { CategoriesService } from './categories/categories.service';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
+import { FormCategoriesComponent } from './categories/form-categories/form-categories.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { LoginService } from './login/login.service';
     TasksComponent,
     FormTasksComponent,
     CategoriesComponent,
-    LoginComponent
+    LoginComponent,
+    FormCategoriesComponent
   ],
   imports: [
     BrowserModule,
