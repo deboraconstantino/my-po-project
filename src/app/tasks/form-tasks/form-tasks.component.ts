@@ -5,9 +5,9 @@ import { map, switchMap } from "rxjs/operators";
 
 import { PoNotificationService, PoComboOption } from "@portinari/portinari-ui";
 
-import { Task } from "../tasks/task.model";
-import { TasksService } from "../tasks/tasks.service";
-import { CategoriesService } from "../categories/categories.service";
+import { Task } from "../task.model";
+import { TasksService } from "../tasks.service";
+import { CategoriesService } from "../../categories/categories.service";
 import { DatePipe } from "@angular/common";
 
 @Component({
@@ -107,8 +107,8 @@ export class FormTasksComponent implements OnInit {
       id: task.id,
       name: task.name,
       description: task.description,
-      start: task.start,
-      category: task.category
+      category: task.category,
+      start: task.start
     });
   }
 

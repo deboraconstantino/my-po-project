@@ -1,16 +1,6 @@
 {
   "tasks": [
     {
-      "id": 10,
-      "name": "sdsadasdsdsdsds",
-      "description": "ddddddddddddddddddddddddd",
-      "category": "Trabalho",
-      "start": "2020-03-14",
-      "done": true,
-      "status": "finished",
-      "end": "2020-03-01"
-    },
-    {
       "id": 12,
       "name": "teste",
       "description": "teste do teste do teste",
@@ -185,6 +175,14 @@
       "category": "Trabalho",
       "start": "2020-03-14",
       "done": false
+    },
+    {
+      "id": 33,
+      "name": "hoje j",
+      "description": "kkkkkkkkkkkkkkkkkkkkkkkkk",
+      "category": "Outros",
+      "start": "2020-03-14",
+      "done": false
     }
   ],
   "categories": [
@@ -207,11 +205,6 @@
       "id": 4,
       "name": "Trabalho",
       "status": "Habilitada"
-    },
-    {
-      "id": 5,
-      "name": "Finanças",
-      "status": "Desabilitada"
     }
   ]
 }

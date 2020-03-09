@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router'
 import { TasksComponent } from './tasks/tasks.component'
-import { FormTasksComponent } from './form-tasks/form-tasks.component'
+import { FormTasksComponent } from './tasks/form-tasks/form-tasks.component'
 import { LoginComponent } from './login/login.component'
 import { AuthGuard } from './auth/auth.guard';
 import { CategoriesComponent } from './categories/categories.component';

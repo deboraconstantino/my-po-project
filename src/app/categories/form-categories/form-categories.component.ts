@@ -17,8 +17,7 @@ export class FormCategoriesComponent implements OnInit {
 
   categories: Category = {
     id: "",
-    name: "",
-    status: ""
+    name: ""
   };
 
   constructor(
@@ -31,8 +30,7 @@ export class FormCategoriesComponent implements OnInit {
   ngOnInit() {
     this.formCategories = this.formBuilder.group({
       id: [this.categories.id],
-      name: [this.categories.name, Validators.required],
-      status: [this.categories.status, Validators.required]
+      name: [this.categories.name, Validators.required]
     });
 
     this.activatedRoute.params
@@ -45,11 +43,6 @@ export class FormCategoriesComponent implements OnInit {
       });
   }
 
-  public readonly options: Array<PoComboOption> = [
-    { label: "Habilitada", value: "Habilitada" },
-    { label: "Desabilitada", value: "Desabilitada" }
-  ];
-
   onSubmit() {
     this.submitted = true;
 
@@ -61,7 +54,7 @@ export class FormCategoriesComponent implements OnInit {
       }
     } else {
       this.poNotification.error(
-        "Por favor, preencher nome e status da categoria!"
+        "Por favor, preencher nome da categoria!"
       );
     }
   }
@@ -69,8 +62,7 @@ export class FormCategoriesComponent implements OnInit {
   updateForm(category) {
     this.formCategories.patchValue({
       id: category.id,
-      name: category.name,
-      status: category.status
+      name: category.name
     });
   }
 

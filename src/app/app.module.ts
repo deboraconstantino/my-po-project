@@ -12,7 +12,7 @@ import { PoModalModule, PoModalComponent, PoPageModule, PoModule } from '@portin
 
 import { TasksComponent } from './tasks/tasks.component';
 import { TasksService } from './tasks/tasks.service';
-import { FormTasksComponent } from './form-tasks/form-tasks.component';
+import { FormTasksComponent } from './tasks/form-tasks/form-tasks.component';
 
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoriesService } from './categories/categories.service';

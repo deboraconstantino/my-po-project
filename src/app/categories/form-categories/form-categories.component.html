@@ -10,16 +10,9 @@
                     hidden />
                 <po-input
                     p-label="Nome"
-                    class="po-xl-8 po-lg-8"
+                    class="po-xl-12 po-lg-12"
                     formControlName="name">
                 </po-input>
-                <po-combo
-                    name="combo"
-                    class="po-xl-4 po-lg-4"
-                    p-label="Status"
-                    [p-options]="options"
-                    formControlName="status">
-                </po-combo>
                 <div class="po-offset-xl-6 po-offset-lg-6 po-xl-12 po-lg-12">
                     <po-button p-icon="po-icon po-icon-exit" p-type="default" class="po-xl-3 po-lg-3" p-label="Fechar" (p-click)="close()"></po-button>
                     <po-button p-icon="po-icon po-icon-ok" p-type="primary" class="po-xl-3 po-lg-3" p-label="Salvar" (p-click)="onSubmit()"></po-button>
