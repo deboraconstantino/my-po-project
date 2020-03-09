@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoriesService } from './categories.service';
 import { Category } from './category.model';
 import { Router, ActivatedRoute } from '@angular/router';
+import { PoDialogService, PoNotificationService } from '@portinari/portinari-ui';
 
 @Component({
   selector: 'app-categories',
@@ -13,7 +14,9 @@ export class CategoriesComponent implements OnInit {
 
   constructor(private categoriesService: CategoriesService,
     private router: Router,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,
+    private poAlert: PoDialogService,
+    private poNotification: PoNotificationService) { }
 
   ngOnInit() {
     this.categoriesService.getCategories()
@@ -22,5 +25,26 @@ export class CategoriesComponent implements OnInit {
 
   edit(id) {
     this.router.navigate(["/edit-category", id], { relativeTo: this.activatedRoute });
+  }
+
+  openDialog(id) {
+    this.poAlert.confirm({
+      title: "Excluir categoria",
+      message: "Confirma a exclusão da categoria?",
+      confirm: () => this.remove(id),
+      cancel: () => this.refresh()
+    });
+  }
+
+  refresh() {
+    this.categoriesService.getCategories()
+    .subscribe(categories => this.categories = categories);
+  }
+
+  remove(id) {
+    this.categoriesService.deleteCategory(id).subscribe(a => {
+      this.poNotification.success("Categoria excluída com sucesso!"),
+      this.refresh();
+    });
   }
 }

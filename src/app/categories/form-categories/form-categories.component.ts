@@ -26,8 +26,7 @@ export class FormCategoriesComponent implements OnInit {
     private categoriesService: CategoriesService,
     private poNotification: PoNotificationService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
-  ) {}
+    private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
     this.formCategories = this.formBuilder.group({

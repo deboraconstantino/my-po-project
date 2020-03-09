@@ -177,18 +177,41 @@
       "category": "Lazer",
       "start": "2020-03-08",
       "done": false
+    },
+    {
+      "id": 32,
+      "name": "teste",
+      "description": "auhsuahsuahsuahsuhaus",
+      "category": "Trabalho",
+      "start": "2020-03-14",
+      "done": false
     }
   ],
   "categories": [
     {
       "id": 1,
-      "name": "Lazer alterada",
-      "status": "enabled"
+      "name": "Lazer",
+      "status": "Habilitada"
     },
     {
       "id": 2,
       "name": "Outros",
-      "status": "enabled"
+      "status": "Habilitada"
+    },
+    {
+      "id": 3,
+      "name": "Educação",
+      "status": "Habilitada"
+    },
+    {
+      "id": 4,
+      "name": "Trabalho",
+      "status": "Habilitada"
+    },
+    {
+      "id": 5,
+      "name": "Finanças",
+      "status": "Desabilitada"
     }
   ]
 }

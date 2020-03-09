@@ -30,4 +30,9 @@ export class CategoriesService {
     return this.http.put(`${TASKS_API}/categories/${category.id}`, category)
     .catch(ErrorHandler.handleError)
   }
+
+  deleteCategory(id) {
+    return this.http.delete(`${TASKS_API}/categories/${id}`)
+    .catch(ErrorHandler.handleError)
+  }
 }
