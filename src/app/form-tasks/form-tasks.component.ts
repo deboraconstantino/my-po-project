@@ -19,7 +19,7 @@ import { DatePipe } from "@angular/common";
 export class FormTasksComponent implements OnInit {
   formTasks: FormGroup;
   submitted: boolean = false;
-  categories: Array<PoComboOption>;
+  categories: any;
   date = new Date();
   newDate;
   atStart: string;
@@ -47,7 +47,9 @@ export class FormTasksComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.categories = this.categoriesService.getCategories();
+    this.categoriesService.getCategories()
+    .subscribe(categories => this.categories = categories
+      .map(a => ({value: a.name})));
 
     this.activatedroute.params
       .pipe(

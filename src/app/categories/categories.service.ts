@@ -1,14 +1,18 @@
 import { Injectable } from "@angular/core";
-import { PoComboOption } from '@portinari/portinari-ui';
+import { HttpClient } from '@angular/common/http';
+import 'rxjs/add/operator/map'
+
+import { ErrorHandler } from '../app.error-handler';
+import { Category } from './category.model';
+import { TASKS_API } from '../app.api';
 
 @Injectable()
 export class CategoriesService {
-    getCategories(){
-        return [
-          { label: 'Lazer', value: 'Lazer' },
-          { label: 'Trabalho', value: 'Trabalho' },
-          { label: 'Educação', value: 'Educação' },
-          { label: 'Outros', value: 'Outros' },
-        ];
-      }
+
+  constructor(private http: HttpClient) {}
+
+  getCategories() {
+    return this.http.get<Category[]>(`${TASKS_API}/categories`)
+    .catch(ErrorHandler.handleError)
+  }
 }

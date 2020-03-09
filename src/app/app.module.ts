@@ -45,7 +45,8 @@ import { LoginService } from './login/login.service';
     HttpClientModule,
     PoModalComponent,
     CategoriesService,
-    LoginService],
+    LoginService,
+    CategoriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

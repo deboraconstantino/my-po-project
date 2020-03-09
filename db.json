@@ -169,6 +169,21 @@
       "category": "Outros",
       "start": "2020-03-08",
       "done": false
+    },
+    {
+      "id": 31,
+      "name": "teste",
+      "description": "teste teste teste teste",
+      "category": "Lazer",
+      "start": "2020-03-08",
+      "done": false
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Lazer",
+      "status": "enabled"
     }
   ]
 }
