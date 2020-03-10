@@ -1,185 +1,33 @@
 {
   "tasks": [
     {
-      "id": 12,
-      "name": "teste",
-      "description": "teste do teste do teste",
+      "id": 1,
+      "name": "Curso JS",
+      "description": "Curso de JavaScript Avançado l",
       "category": "Trabalho",
-      "start": "2020-03-04",
-      "done": true,
-      "status": "finished",
-      "end": "2020-03-01"
+      "start": "2020-03-17",
+      "done": false
     },
     {
-      "id": 13,
-      "name": "teste",
-      "description": "kkkkkkkkkkkkkkkkkkkkkkkk",
-      "category": "Trabalho",
-      "start": "2020-03-01",
-      "done": true,
-      "status": "finished",
-      "end": "2020-03-01"
-    },
-    {
-      "id": 14,
-      "name": "jshdkjhsadkjhs",
-      "description": "sdasdasdasdasdsdasdsdsdsd",
-      "category": "Lazer",
-      "start": "2020-03-02"
-    },
-    {
-      "id": 15,
-      "name": "jshdkjhsadkjhs",
-      "description": "sdasdasdasdasdsdasdsdsdsd",
-      "category": "Lazer",
-      "start": "2020-03-02"
-    },
-    {
-      "id": 16,
-      "name": "teste",
-      "description": "asasasasasasasasas",
-      "category": "Trabalho",
-      "start": "2020-03-12",
-      "done": true,
-      "status": "finished",
-      "end": "2020-03-02"
-    },
-    {
-      "id": 17,
-      "name": "teste",
-      "description": "cvvvvvvvvvvvvvvvvvvvvvvvv",
-      "category": "Trabalho",
-      "start": "2020-03-12",
-      "done": true,
-      "status": "finished",
-      "end": "2020-03-02"
-    },
-    {
-      "id": 19,
-      "name": "Tarefa 1",
-      "description": "aaaaaaaaaaaaaaaaaaaaaaa",
-      "category": "Trabalho",
-      "start": "2020-03-04",
-      "done": true,
-      "status": "finished",
-      "end": "2020-03-03"
-    },
-    {
-      "id": 20,
-      "name": "Tarefa 2",
-      "description": "aaaaaaaaaaaaaaaaaaaaa",
-      "category": "Lazer",
-      "start": "2020-03-02",
-      "done": true,
-      "status": "finished",
-      "end": "2020-03-03"
-    },
-    {
-      "id": 21,
-      "name": "Tarefa 1",
-      "description": "Tarefa 1Tarefa 1Tarefa 1Tarefa 1Tarefa 1Tarefa 1Tarefa 1Tarefa 1",
-      "category": "Trabalho",
-      "start": "2020-03-03",
-      "done": true,
-      "status": "finished",
-      "end": "2020-03-06"
-    },
-    {
-      "id": 22,
-      "name": "Tarefa 2 alter",
-      "description": "Tarefa 2Tarefa 2Tarefa 2Tarefa 2Tarefa 2Tarefa 2Tarefa 2Tarefa 2Tarefa 2Tarefa 2",
+      "id": 2,
+      "name": "Curso TS",
+      "description": "Curso TypeScript Avançado l",
       "category": "Educação",
-      "start": "2020-03-06",
-      "done": true,
-      "status": "finished",
-      "end": "2020-03-06"
-    },
-    {
-      "id": 23,
-      "name": "Tarefa 3 kj",
-      "description": "Tarefa 3Tarefa 3Tarefa 3Tarefa 3Tarefa 3Tarefa 3Tarefa 3Tarefa 3Tarefa 3",
-      "category": "Outros",
-      "start": "2020-03-04",
-      "done": true,
-      "status": "finished",
-      "end": "2020-03-07"
-    },
-    {
-      "id": 24,
-      "name": "Tarefa 4",
-      "description": "Tarefa 4Tarefa 4Tarefa 4Tarefa 4Tarefa 4Tarefa 4Tarefa 4Tarefa 4",
-      "category": "Trabalho",
-      "start": "2020-03-03",
+      "start": "2020-03-17",
       "done": false
     },
     {
-      "id": 25,
-      "name": "Tarefa 5",
-      "description": "Tarefa 5Tarefa 5Tarefa 5Tarefa 5Tarefa 5Tarefa 5Tarefa 5Tarefa 5Tarefa 5Tarefa 5",
-      "category": "Trabalho",
-      "start": "2020-03-05",
-      "done": false
-    },
-    {
-      "id": 26,
-      "name": "Tarefa 6",
-      "description": "Tarefa 6Tarefa 6Tarefa 6Tarefa 6Tarefa 6Tarefa 6Tarefa 6Tarefa 6",
+      "id": 3,
+      "name": "Curso Angular",
+      "description": "Curso Angular Avançado",
       "category": "Educação",
-      "start": "2020-03-28",
+      "start": "2020-03-17",
       "done": false
     },
     {
-      "id": 27,
-      "name": "Tarefa 22 alt",
-      "description": "sudhasuhdasudhasudhsuh",
-      "category": "Trabalho",
-      "start": "2020-03-07",
-      "done": false
-    },
-    {
-      "id": 28,
-      "name": "hello",
-      "description": "sadasdsadasdasdsa",
-      "category": "Educação",
-      "start": "2020-03-21",
-      "done": false
-    },
-    {
-      "id": 29,
-      "name": "sdsadasd",
-      "description": "dddddddddddddddddd",
-      "category": "Lazer",
-      "start": "2020-03-07",
-      "done": false
-    },
-    {
-      "id": 30,
-      "name": "kdjkasljdlaks",
-      "description": "sadasdasdasdasdasd",
-      "category": "Outros",
-      "start": "2020-03-08",
-      "done": false
-    },
-    {
-      "id": 31,
-      "name": "teste",
-      "description": "teste teste teste teste",
-      "category": "Lazer",
-      "start": "2020-03-08",
-      "done": false
-    },
-    {
-      "id": 32,
-      "name": "teste",
-      "description": "auhsuahsuahsuahsuhaus",
-      "category": "Trabalho",
-      "start": "2020-03-14",
-      "done": false
-    },
-    {
-      "id": 33,
-      "name": "hoje j",
-      "description": "kkkkkkkkkkkkkkkkkkkkkkkkk",
+      "id": 4,
+      "name": "Médico Pulso",
+      "description": "Levar resultado do exame de pulso.",
       "category": "Outros",
       "start": "2020-03-14",
       "done": false
@@ -205,10 +53,6 @@
       "id": 4,
       "name": "Trabalho",
       "status": "Habilitada"
-    },
-    {
-      "id": 5,
-      "name": "Teste"
     }
   ]
 }

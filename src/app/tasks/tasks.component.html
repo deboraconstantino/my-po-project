@@ -90,7 +90,7 @@
     <po-info class="po-sm-6" p-label="Categoria" [p-value]="detail?.category">
     </po-info>
 
-    <po-info class="po-sm-3" p-label="Data Limite" [p-value]="detail?.start">
+    <po-info class="po-sm-3" p-label="Data Limite" [p-value]="detail?.start | date: 'dd/MM/yyyy'">
     </po-info>
 
     <po-info

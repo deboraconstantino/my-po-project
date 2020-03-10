@@ -9,8 +9,7 @@ import {
   PoTableAction,
   PoModalComponent,
   PoNotificationService,
-  PoDialogService,
-  PoRadioGroupOption
+  PoDialogService
 } from "@portinari/portinari-ui";
 
 import { TasksService } from "./tasks.service";
@@ -154,17 +153,9 @@ export class TasksComponent implements OnInit {
     } else if (value == "date") {
       this.option = "date";
     } else if (value == "all") {
-      this.tasksService.getTasks().subscribe(
-        dados =>
-          (this.items = dados.map(dado => ({
-            ...dado,
-            status: this.tasksService.updStatus(
-              dado.start,
-              dado.end,
-              dado.status
-            )
-          })))
-      );
+      this.searchForm.reset();
+      this.searchForm.disable();
+      this.refresh();
     }
   }
 
@@ -198,13 +189,9 @@ export class TasksComponent implements OnInit {
             })))
         );
     } else if (this.option == "date") {
+      this.datePipe.transform(this.searchForm.value.searchControl, 'yyyy-MM-dd')
       this.tasksService
-        .getTasksByDate(
-          this.datePipe.transform(
-            this.searchForm.value.searchControl,
-            "yyyy-dd-MM"
-          )
-        )
+        .getTasksByDate(this.searchForm.value.searchControl)
         .subscribe(
           dados =>
             (this.items = dados.map(dado => ({

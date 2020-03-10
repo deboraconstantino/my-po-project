@@ -16,15 +16,14 @@ import { FormTasksComponent } from './tasks/form-tasks/form-tasks.component';
 
 import { CategoriesService } from './categories/categories.service';
 import { LoginComponent } from './login/login.component';
-import { LoginService } from './login/login.service';
 import { CategoriesModule } from './categories/categories.module';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     TasksComponent,
-    FormTasksComponent,
-    LoginComponent
+    FormTasksComponent
   ],
   imports: [
     BrowserModule,
@@ -37,14 +36,12 @@ import { CategoriesModule } from './categories/categories.module';
     HttpClientModule,
     PoModalModule,
     PoPageDynamicSearchModule,
-    PoPageLoginModule,
-    PoModalPasswordRecoveryModule,
-    CategoriesModule
+    CategoriesModule,
+    LoginModule
   ],
   providers: [TasksService,
     HttpClientModule,
     PoModalComponent,
-    LoginService,
     CategoriesService],
   bootstrap: [AppComponent]
 })

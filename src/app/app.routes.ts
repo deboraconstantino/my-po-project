@@ -15,5 +15,5 @@ export const ROUTES: Routes = [
     {path: 'categories', loadChildren: './categories/categories.module#CategoriesModule', canActivate: [AuthGuard]},
     {path: 'form-categories', loadChildren: './categories/categories.module#CategoriesModule', canActivate: [AuthGuard]},
     {path: 'edit-category/:id', loadChildren: './categories/categories.module#CategoriesModule', canActivate: [AuthGuard]},
-    {path: 'login', component: LoginComponent}
+    {path: 'login', loadChildren: './login/login.module#LoginModule'}
 ]
