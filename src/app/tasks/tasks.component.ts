@@ -147,10 +147,13 @@ export class TasksComponent implements OnInit {
 
   alter(value) {
     if (value == "category") {
+      this.searchForm.enable();
       this.option = "category";
     } else if (value == "task") {
+      this.searchForm.enable();
       this.option = "task";
     } else if (value == "date") {
+      this.searchForm.enable();
       this.option = "date";
     } else if (value == "all") {
       this.searchForm.reset();

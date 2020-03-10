@@ -5,25 +5,42 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 
 import { AppComponent } from './app.component';
-import { PoModule } from '@portinari/portinari-ui';
+import { PoModule, PoPageModule, PoModalModule, PoModalComponent } from '@portinari/portinari-ui';
 
 import { CategoriesModule } from './categories/categories.module';
 import { LoginModule } from './login/login.module';
-import { TasksModule } from './tasks/tasks.module';
+import { TasksService } from './tasks/tasks.service';
+import { TasksComponent } from './tasks/tasks.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PoPageDynamicTableModule, PoPageDynamicSearchModule } from '@portinari/portinari-templates';
+import { HttpClientModule } from '@angular/common/http';
+import { FormTasksComponent } from './tasks/form-tasks/form-tasks.component';
+import { CategoriesService } from './categories/categories.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TasksComponent,
+    FormTasksComponent
   ],
   imports: [
     BrowserModule,
     PoModule,
     RouterModule.forRoot(ROUTES),
+    FormsModule,
+    ReactiveFormsModule,
+    PoPageDynamicTableModule,
+    PoPageModule,
+    HttpClientModule,
+    PoModalModule,
+    PoPageDynamicSearchModule,
     CategoriesModule,
-    LoginModule,
-    TasksModule
+    LoginModule
   ],
-  providers: [],
+  providers: [TasksService,
+    HttpClientModule,
+    PoModalComponent,
+    CategoriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

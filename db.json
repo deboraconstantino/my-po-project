@@ -23,6 +23,24 @@
       "category": "Educação",
       "start": "2020-03-17",
       "done": false
+    },
+    {
+      "id": 4,
+      "name": "Comprar ovo",
+      "description": "Comprar ovo para fazer omelete.",
+      "category": "Alimentação",
+      "start": "2020-03-10",
+      "done": true,
+      "status": "finished",
+      "end": "2020-03-10"
+    },
+    {
+      "id": 5,
+      "name": "Nutricionista",
+      "description": "Marcar nutricionista.",
+      "category": "Saúde",
+      "start": "2020-03-10",
+      "done": false
     }
   ],
   "categories": [
@@ -45,6 +63,14 @@
       "id": 4,
       "name": "Trabalho",
       "status": "Habilitada"
+    },
+    {
+      "id": 5,
+      "name": "Saúde"
+    },
+    {
+      "id": 6,
+      "name": "Alimentação"
     }
   ]
 }
