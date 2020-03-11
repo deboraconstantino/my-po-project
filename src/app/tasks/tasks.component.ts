@@ -192,9 +192,8 @@ export class TasksComponent implements OnInit {
             })))
         );
     } else if (this.option == "date") {
-      this.datePipe.transform(this.searchForm.value.searchControl, 'yyyy-MM-dd')
       this.tasksService
-        .getTasksByDate(this.searchForm.value.searchControl)
+        .getTasksByDate(this.dateTransform(this.searchForm.value.searchControl))
         .subscribe(
           dados =>
             (this.items = dados.map(dado => ({
@@ -207,5 +206,10 @@ export class TasksComponent implements OnInit {
             })))
         );
     }
+  }
+
+  dateTransform(date) {
+    date = date.split('/')
+    return `${date[2]}-${date[1]}-${date[0]}`
   }
 }
