@@ -27,6 +27,10 @@ export class CategoriesComponent implements OnInit {
     this.router.navigate(["/edit-category", id], { relativeTo: this.activatedRoute });
   }
 
+  include() {
+    this.router.navigate(["/form-categories"], { relativeTo:  this.activatedRoute });
+  }
+
   openDialog(id) {
     this.poAlert.confirm({
       title: "Excluir categoria",

@@ -1,31 +1,33 @@
-import { Router } from '@angular/router';
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { PoNotificationService } from '@portinari/portinari-ui';
+import { Router } from "@angular/router";
+import { Injectable } from "@angular/core";
+import { BehaviorSubject } from "rxjs";
+import { PoNotificationService } from "@portinari/portinari-ui";
 
 @Injectable()
 export class LoginService {
-    private loggedIn = new BehaviorSubject<boolean>(false);
+  private loggedIn = new BehaviorSubject<boolean>(false);
 
-    constructor(private router: Router,
-        private poNotification: PoNotificationService) {}
+  constructor(
+    private router: Router,
+    private poNotification: PoNotificationService
+  ) {}
 
-    doLogin(user) {
-        if (user.login === "admin" && user.password === "admin") {
-            this.loggedIn.next(true);
-            this.router.navigate(['tasks']);
-        } else {
-            this.poNotification.error("Login inválido! Tente novamente.")
-            return false;
-        }
+  doLogin(user) {
+    if (user.login === "admin" && user.password === "admin") {
+      this.loggedIn.next(true);
+      this.router.navigate(["tasks"]);
+    } else {
+      this.poNotification.error("Login inválido! Tente novamente.");
+      return false;
     }
+  }
 
-    get isLoggedIn() {
-        return this.loggedIn.asObservable();
-    }
+  isLoggedIn() {
+    return this.loggedIn.asObservable();
+  }
 
-    doLogout() {
-        this.router.navigate(['/login']);
-        return false;
-    }
+  doLogout() {
+    this.loggedIn.next(false);
+    this.router.navigate(["/login"]);
+  }
 }

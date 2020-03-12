@@ -1,7 +1,15 @@
 <po-page-default>
   <div class="po-row">
     <div class="po-offset-xl-2 po-offset-lg-2 po-xl-7 po-lg-7">
-      <po-divider p-label="Minhas Categorias"> </po-divider>
+      <po-button
+      class="po-offset-xl-9 po-offset-lg-9 po-xl-3 po-lg-3"
+      p-label="Incluir"
+      p-type="primary"
+      p-icon="po-icon po-icon-plus"
+      (p-click)="include()"
+    >
+    </po-button>
+
       <div *ngFor="let category of categories">
         <po-widget
           p-primary-label="Alterar"
@@ -10,7 +18,9 @@
           (p-secondary-action)="openDialog(category?.id)"
           class="po-lg-6 po-xl-6"
         >
-          <div class="po-font-subtitle po-text-center">{{ category?.name }}</div>
+          <div class="po-font-subtitle po-text-center">
+            {{ category?.name }}
+          </div>
         </po-widget>
       </div>
     </div>

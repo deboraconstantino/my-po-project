@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.authOk$ = this.loginService.isLoggedIn;
+    this.authOk$ = this.loginService.isLoggedIn();
   }
 
   readonly menus: Array<PoMenuItem> = [
@@ -42,16 +42,9 @@ export class AppComponent implements OnInit {
     },
     {
       label: "Minhas Categorias",
-      subItems: [
-        { label: "Categorias",
-          link: "categories",
-          action: () => this.categoriesService.getCategories()
-        },
-        { label: "Incluir categoria",
-          link: "form-categories"
-        }
-      ]
+      link: "categories",
+      action: () => this.categoriesService.getCategories()
     },
-    { label: "Logout", link: "/" }
+    { label: "Logout", link: "/", action: () => this.loginService.doLogout() }
   ];
 }
