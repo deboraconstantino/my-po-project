@@ -35,8 +35,8 @@ export class TasksService {
     ];
   }
 
-  getTasks() {
-    return this.http.get<Task[]>(`${TASKS_API}/tasks?done=${this.status}`)
+  getTasks(search: string = "") {
+    return this.http.get<Task[]>(`${TASKS_API}/tasks?done=${this.status}`, {params: {q: search}})
     .catch(ErrorHandler.handleError)
   }
 

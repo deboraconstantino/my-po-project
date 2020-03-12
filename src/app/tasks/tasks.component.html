@@ -1,17 +1,19 @@
 <po-page-default>
   <po-container>
-    <po-divider p-label="Filtrar por:"> </po-divider>
     <div class="po-row">
       <div class="po-lg-6">
-        <po-radio-group
-          p-columns="4"
-          name="radioGroupBasic"
-          [p-options]="options"
-          (p-change)="alter($event)"
-        >
-        </po-radio-group>
+        <div class="po-field-container-content">
+          <po-button
+            p-label="Incluir"
+            class="po-xl-3 po-lg-3"
+            p-type="primary"
+            p-icon="po-icon po-icon-plus"
+            (p-click)="include()"
+          >
+          </po-button>
+        </div>
       </div>
-      <div class="po-offset-lg-3 po-offset-xl-3" >
+      <div class="po-offset-lg-3 po-offset-xl-3">
         <div class="po-field-container-content po-page-filter-content">
           <div class="po-field-icon-container-right">
             <span
@@ -90,7 +92,11 @@
     <po-info class="po-sm-6" p-label="Categoria" [p-value]="detail?.category">
     </po-info>
 
-    <po-info class="po-sm-3" p-label="Data Limite" [p-value]="detail?.start | date: 'dd/MM/yyyy'">
+    <po-info
+      class="po-sm-3"
+      p-label="Data Limite"
+      [p-value]="detail?.start | date: 'dd/MM/yyyy'"
+    >
     </po-info>
 
     <po-info

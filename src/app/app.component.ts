@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
       label: "Minhas Tarefas",
       subItems: [
         {
-          label: "Atividades Pendentes",
+          label: "Tarefas Pendentes",
           action: () => this.tasksService.setStatus("false"),
           link: "tasks"
         },
@@ -37,9 +37,6 @@ export class AppComponent implements OnInit {
           label: "Tarefas Finalizadas",
           link: "end-tasks",
           action: () => this.tasksService.setStatus("true")
-        },
-        { label: "Incluir Tarefas",
-          link: "form-tasks"
         }
       ]
     },

@@ -65,6 +65,21 @@ export class TasksComponent implements OnInit {
     this.searchForm = this.formBuilder.group({
       searchControl: this.searchControl.value
     });
+
+    this.searchForm.get("searchControl").valueChanges.subscribe(search => {
+      this.searchValid(search),
+        this.tasksService.getTasks(this.searchValid(search)).subscribe(
+          dados =>
+            (this.items = dados.map(dado => ({
+              ...dado,
+              status: this.tasksService.updStatus(
+                dado.start,
+                dado.end,
+                dado.status
+              )
+            })))
+        );
+    });
   }
 
   actions: Array<PoTableAction> = [
@@ -100,8 +115,8 @@ export class TasksComponent implements OnInit {
         .subscribe(a =>
           this.poNotification.success("Tarefa finalizada com sucesso!")
         );
-      this.refresh();
     }
+    this.refresh();
   }
 
   openDialogEnd(id) {
@@ -125,6 +140,10 @@ export class TasksComponent implements OnInit {
 
   edit(id) {
     this.router.navigate(["/edit", id], { relativeTo: this.activatedRoute });
+  }
+
+  include() {
+    this.router.navigate(["/form-tasks"], { relativeTo: this.activatedRoute })
   }
 
   remove(id) {
@@ -209,7 +228,16 @@ export class TasksComponent implements OnInit {
   }
 
   dateTransform(date) {
-    date = date.split('/')
-    return `${date[2]}-${date[1]}-${date[0]}`
+    date = date.split("/");
+    return `${date[2]}-${date[1]}-${date[0]}`;
+  }
+
+  searchValid(search) {
+    let valid = new RegExp("^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])");
+    //^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}$
+    if (valid.test(search)) {
+      return this.dateTransform(search);
+    }
+    return search;
   }
 }
