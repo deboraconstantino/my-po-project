@@ -40,7 +40,9 @@
       "description": "Marcar nutricionista.",
       "category": "Saúde",
       "start": "2020-03-10",
-      "done": false
+      "done": true,
+      "status": "finished",
+      "end": "2020-03-12"
     },
     {
       "id": 6,

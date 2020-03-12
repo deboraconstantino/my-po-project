@@ -16,12 +16,14 @@ import { PoPageDynamicTableModule, PoPageDynamicSearchModule } from '@portinari/
 import { HttpClientModule } from '@angular/common/http';
 import { FormTasksComponent } from './tasks/form-tasks/form-tasks.component';
 import { CategoriesService } from './categories/categories.service';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TasksComponent,
-    FormTasksComponent
+    FormTasksComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

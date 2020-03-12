@@ -34,22 +34,13 @@ export class TasksComponent implements OnInit {
     private poAlert: PoDialogService,
     private datePipe: DatePipe,
     private formBuilder: FormBuilder
-  ) {}
+  ) { }
 
   columns: Array<PoTableColumn>;
   items: any;
   detail: any;
   action: string;
-  actionOptions: Array<string>;
   date = new Date();
-  option;
-
-  readonly options: Array<any> = [
-    { label: "Todas", value: "all" },
-    { label: "Tarefa", value: "task" },
-    { label: "Categoria", value: "category" },
-    { label: "Data Limite", value: "date" }
-  ];
 
   ngOnInit() {
     this.columns = this.tasksService.getColumns();
@@ -66,20 +57,19 @@ export class TasksComponent implements OnInit {
       searchControl: this.searchControl.value
     });
 
-    this.searchForm.get("searchControl").valueChanges.subscribe(search => {
-      this.searchValid(search),
-        this.tasksService.getTasks(this.searchValid(search)).subscribe(
-          dados =>
-            (this.items = dados.map(dado => ({
-              ...dado,
-              status: this.tasksService.updStatus(
-                dado.start,
-                dado.end,
-                dado.status
-              )
-            })))
-        );
-    });
+    // this.searchForm.get("searchControl").valueChanges.subscribe(search => {
+    //   this.tasksService.getTasks(this.searchValid(search)).subscribe(
+    //     dados =>
+    //       (this.items = dados.map(dado => ({
+    //         ...dado,
+    //         status: this.tasksService.updStatus(
+    //           dado.start,
+    //           dado.end,
+    //           dado.status
+    //         )
+    //       })))
+    //   );
+    // });
   }
 
   actions: Array<PoTableAction> = [
@@ -91,7 +81,8 @@ export class TasksComponent implements OnInit {
     {
       action: this.openDialogEnd.bind(this),
       icon: "po-icon po-icon-ok",
-      label: "Finalizar"
+      label: "Finalizar",
+      visible: this.disable()
     }
   ];
 
@@ -164,69 +155,6 @@ export class TasksComponent implements OnInit {
     );
   }
 
-  alter(value) {
-    if (value == "category") {
-      this.searchForm.enable();
-      this.option = "category";
-    } else if (value == "task") {
-      this.searchForm.enable();
-      this.option = "task";
-    } else if (value == "date") {
-      this.searchForm.enable();
-      this.option = "date";
-    } else if (value == "all") {
-      this.searchForm.reset();
-      this.searchForm.disable();
-      this.refresh();
-    }
-  }
-
-  change() {
-    if (this.option == "category") {
-      this.tasksService
-        .getTasksByCategory(this.searchForm.value.searchControl)
-        .subscribe(
-          dados =>
-            (this.items = dados.map(dado => ({
-              ...dado,
-              status: this.tasksService.updStatus(
-                dado.start,
-                dado.end,
-                dado.status
-              )
-            })))
-        );
-    } else if (this.option == "task") {
-      this.tasksService
-        .getTasksByName(this.searchForm.value.searchControl)
-        .subscribe(
-          dados =>
-            (this.items = dados.map(dado => ({
-              ...dado,
-              status: this.tasksService.updStatus(
-                dado.start,
-                dado.end,
-                dado.status
-              )
-            })))
-        );
-    } else if (this.option == "date") {
-      this.tasksService
-        .getTasksByDate(this.dateTransform(this.searchForm.value.searchControl))
-        .subscribe(
-          dados =>
-            (this.items = dados.map(dado => ({
-              ...dado,
-              status: this.tasksService.updStatus(
-                dado.start,
-                dado.end,
-                dado.status
-              )
-            })))
-        );
-    }
-  }
-
   dateTransform(date) {
     date = date.split("/");
     return `${date[2]}-${date[1]}-${date[0]}`;
@@ -239,5 +167,12 @@ export class TasksComponent implements OnInit {
       return this.dateTransform(search);
     }
     return search;
+  }
+
+  disable() {
+    if (this.router.url === "/end-tasks") {
+      return false;
+    }
+    return true;
   }
 }

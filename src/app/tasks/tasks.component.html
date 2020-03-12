@@ -3,74 +3,39 @@
     <div class="po-row">
       <div class="po-lg-6">
         <div class="po-field-container-content">
-          <po-button
-            p-label="Incluir"
-            class="po-xl-3 po-lg-3"
-            p-type="primary"
-            p-icon="po-icon po-icon-plus"
-            (p-click)="include()"
-          >
+          <po-button p-label="Incluir" class="po-xl-4 po-lg-4" p-type="primary" p-icon="po-icon po-icon-plus"
+            (p-click)="include()">
           </po-button>
         </div>
       </div>
       <div class="po-offset-lg-3 po-offset-xl-3">
         <div class="po-field-container-content po-page-filter-content">
           <div class="po-field-icon-container-right">
-            <span
-              (click)="change()"
-              class="po-icon po-icon-search po-field-icon"
-            ></span>
+            <span class="po-icon po-icon-search po-field-icon"></span>
           </div>
           <form [formGroup]="searchForm">
-            <input
-              (keyup.enter)="change()"
-              formControlName="searchControl"
-              class="po-input po-input-icon-right ng-pristine ng-valid ng-touched"
-              name="model"
-              type="text"
-              placeholder="Pesquisar"
-            />
+            <input formControlName="searchControl" class="po-input po-input-icon-right ng-pristine ng-valid ng-touched"
+              name="model" type="text" placeholder="Pesquisar" />
           </form>
         </div>
       </div>
-    </div> </po-container
-  ><br />
+    </div>
+  </po-container><br />
 
   <po-container>
-    <po-table
-      [p-actions]="actions"
-      [p-columns]="columns"
-      [p-items]="items"
-      p-sort="true"
-      [p-striped]="true"
-    >
+    <po-table [p-actions]="actions" [p-columns]="columns" [p-items]="items | search: searchForm.get('searchControl').value" p-sort="true" [p-striped]="true">
     </po-table>
   </po-container>
 
-  <po-modal
-    #modal
-    p-hide-close="true"
-    p-click-out="true"
-    p-title="Detalhes sobre {{ detail?.name }}"
-  >
+  <po-modal #modal p-hide-close="true" p-click-out="true" p-title="Detalhes sobre {{ detail?.name }}">
     <div>
       <div class="po-offset-sm-10">
-        <po-button
-          *ngIf="!detail?.end"
-          (p-click)="edit(detail?.id)"
-          p-label="Alterar"
-          p-type="primary"
-          p-icon="po-icon po-icon-edit"
-        >
+        <po-button *ngIf="!detail?.end" (p-click)="edit(detail?.id)" p-label="Alterar" p-type="primary"
+          p-icon="po-icon po-icon-edit">
         </po-button>
 
-        <po-button
-          *ngIf="detail?.end"
-          (p-click)="openDialog(detail?.id)"
-          p-label="Excluir"
-          p-type="danger"
-          p-icon="po-icon po-icon-clear-content"
-        >
+        <po-button *ngIf="detail?.end" (p-click)="openDialog(detail?.id)" p-label="Excluir" p-type="danger"
+          p-icon="po-icon po-icon-clear-content">
         </po-button>
       </div>
       <po-divider> </po-divider>
@@ -82,29 +47,16 @@
     <po-info class="po-sm-6" p-label="Nome da Tarefa" [p-value]="detail?.name">
     </po-info>
 
-    <po-info
-      class="po-sm-12"
-      p-label="Descrição"
-      [p-value]="detail?.description"
-    >
+    <po-info class="po-sm-12" p-label="Descrição" [p-value]="detail?.description">
     </po-info>
 
     <po-info class="po-sm-6" p-label="Categoria" [p-value]="detail?.category">
     </po-info>
 
-    <po-info
-      class="po-sm-3"
-      p-label="Data Limite"
-      [p-value]="detail?.start | date: 'dd/MM/yyyy'"
-    >
+    <po-info class="po-sm-3" p-label="Data Limite" [p-value]="detail?.start | date: 'dd/MM/yyyy'">
     </po-info>
 
-    <po-info
-      *ngIf="detail?.end"
-      class="po-sm-3"
-      p-label="Conclusão"
-      [p-value]="detail?.end"
-    >
+    <po-info *ngIf="detail?.end" class="po-sm-3" p-label="Conclusão" [p-value]="detail?.end">
     </po-info>
   </po-modal>
 </po-page-default>

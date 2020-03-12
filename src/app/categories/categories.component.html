@@ -1,28 +1,25 @@
 <po-page-default>
-  <div class="po-row">
-    <div class="po-offset-xl-2 po-offset-lg-2 po-xl-7 po-lg-7">
-      <po-button
-      class="po-offset-xl-9 po-offset-lg-9 po-xl-3 po-lg-3"
-      p-label="Incluir"
-      p-type="primary"
-      p-icon="po-icon po-icon-plus"
-      (p-click)="include()"
-    >
-    </po-button>
-
-      <div *ngFor="let category of categories">
-        <po-widget
-          p-primary-label="Alterar"
-          p-secondary-label="Excluir"
-          (p-primary-action)="edit(category?.id)"
-          (p-secondary-action)="openDialog(category?.id)"
-          class="po-lg-6 po-xl-6"
-        >
-          <div class="po-font-subtitle po-text-center">
-            {{ category?.name }}
-          </div>
-        </po-widget>
+  <po-container>
+    <div class="po-row">
+      <div class="po-lg-6">
+        <div class="po-field-container-content">
+          <po-button p-label="Incluir" class="po-xl-4 po-lg-4" p-type="primary" p-icon="po-icon po-icon-plus"
+            (p-click)="include()">
+          </po-button>
+        </div>
       </div>
     </div>
-  </div>
+  </po-container>
+  <br>
+  <po-container>
+    <po-divider></po-divider>
+    <div *ngFor="let category of categories">
+      <po-widget p-primary-label="Alterar" p-secondary-label="Excluir" (p-primary-action)="edit(category?.id)"
+        (p-secondary-action)="openDialog(category?.id)" class="po-mb-5 po-lg-4 po-xl-4">
+        <div class="po-font-subtitle po-text-center">
+          {{ category?.name }}
+        </div>
+      </po-widget>
+    </div>
+  </po-container>
 </po-page-default>
