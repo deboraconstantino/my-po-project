@@ -1,25 +1,28 @@
 <po-page-default>
-  <po-container>
-    <div class="po-row">
-      <div class="po-lg-6">
-        <div class="po-field-container-content">
-          <po-button p-label="Incluir" class="po-xl-4 po-lg-4" p-type="primary" p-icon="po-icon po-icon-plus"
-            (p-click)="include()">
-          </po-button>
-        </div>
+  <div class="po-row">
+    <div class="po-offset-xl-11 po-offset-lg-11">
+      <div class="po-field-container-content">
+        <po-button
+          p-label="Incluir"
+          p-type="primary"
+          p-icon="po-icon po-icon-plus"
+          (p-click)="include()"
+        >
+        </po-button>
       </div>
     </div>
-  </po-container>
-  <br>
-  <po-container>
-    <po-divider></po-divider>
-    <div *ngFor="let category of categories">
-      <po-widget p-primary-label="Alterar" p-secondary-label="Excluir" (p-primary-action)="edit(category?.id)"
-        (p-secondary-action)="openDialog(category?.id)" class="po-mb-5 po-lg-4 po-xl-4">
-        <div class="po-font-subtitle po-text-center">
-          {{ category?.name }}
-        </div>
-      </po-widget>
-    </div>
-  </po-container>
+  </div>
+  <div *ngFor="let category of categories">
+    <po-widget
+      p-primary-label="Alterar"
+      p-secondary-label="Excluir"
+      (p-primary-action)="edit(category?.id)"
+      (p-secondary-action)="openDialog(category?.id)"
+      class="po-mb-2 po-lg-4 po-xl-4"
+    >
+      <div class="po-font-subtitle po-text-center">
+        {{ category?.name }}
+      </div>
+    </po-widget>
+  </div>
 </po-page-default>

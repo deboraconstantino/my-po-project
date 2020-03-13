@@ -34,7 +34,7 @@ export class TasksComponent implements OnInit {
     private poAlert: PoDialogService,
     private datePipe: DatePipe,
     private formBuilder: FormBuilder
-  ) { }
+  ) {}
 
   columns: Array<PoTableColumn>;
   items: any;
@@ -56,20 +56,6 @@ export class TasksComponent implements OnInit {
     this.searchForm = this.formBuilder.group({
       searchControl: this.searchControl.value
     });
-
-    // this.searchForm.get("searchControl").valueChanges.subscribe(search => {
-    //   this.tasksService.getTasks(this.searchValid(search)).subscribe(
-    //     dados =>
-    //       (this.items = dados.map(dado => ({
-    //         ...dado,
-    //         status: this.tasksService.updStatus(
-    //           dado.start,
-    //           dado.end,
-    //           dado.status
-    //         )
-    //       })))
-    //   );
-    // });
   }
 
   actions: Array<PoTableAction> = [
@@ -82,7 +68,7 @@ export class TasksComponent implements OnInit {
       action: this.openDialogEnd.bind(this),
       icon: "po-icon po-icon-ok",
       label: "Finalizar",
-      visible: this.disable()
+      visible: this.disableBtnFinalizar()
     }
   ];
 
@@ -134,7 +120,7 @@ export class TasksComponent implements OnInit {
   }
 
   include() {
-    this.router.navigate(["/form-tasks"], { relativeTo: this.activatedRoute })
+    this.router.navigate(["/form-tasks"], { relativeTo: this.activatedRoute });
   }
 
   remove(id) {
@@ -155,21 +141,7 @@ export class TasksComponent implements OnInit {
     );
   }
 
-  dateTransform(date) {
-    date = date.split("/");
-    return `${date[2]}-${date[1]}-${date[0]}`;
-  }
-
-  searchValid(search) {
-    let valid = new RegExp("^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])");
-    //^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}$
-    if (valid.test(search)) {
-      return this.dateTransform(search);
-    }
-    return search;
-  }
-
-  disable() {
+  disableBtnFinalizar() {
     if (this.router.url === "/end-tasks") {
       return false;
     }

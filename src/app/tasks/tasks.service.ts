@@ -40,23 +40,8 @@ export class TasksService {
     .catch(ErrorHandler.handleError)
   }
 
-  getTasksByCategory(category?) {
-    return this.http.get<Task[]>(`${TASKS_API}/tasks?done=${this.status}&category=${category}`)
-    .catch(ErrorHandler.handleError)
-  }
-
-  getTasksByName(name?) {
-    return this.http.get<Task[]>(`${TASKS_API}/tasks?done=${this.status}&name=${name}`)
-    .catch(ErrorHandler.handleError)
-  }
-
   setStatus(status: string) {
     this.status = status
-  }
-
-  getTasksByDate(date?) {
-    return this.http.get<Task[]>(`${TASKS_API}/tasks?done=${this.status}&start=${date}`)
-    .catch(ErrorHandler.handleError)
   }
 
   postItems(tasks) {

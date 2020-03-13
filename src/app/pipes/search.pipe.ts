@@ -1,27 +1,32 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({
-  name: 'search'
+  name: "search"
 })
 export class SearchPipe implements PipeTransform {
-
-  transform(value: any, args?: any): any {
-
-    if (!value) { return null; }
-    if (!args) { return value; }
-
-    args = args.toLowerCase();
-    value = value.map(value => {
-      value.dateDaDebora = args;
+  transform(value: any, search?: any): any {
+    if (!value) {
+      return null;
+    }
+    if (!search) {
       return value;
-    })
+    }
 
-    console.log(value)
-    
-    return value.filter( item => {
+    search = search.toLowerCase();
+    value = value.map(value => {
+      value.date = this.dateTransform(value.start);
+      return value;
+    });
 
-      return JSON.stringify(item).toLowerCase().includes(args);
+    return value.filter(item => {
+      return JSON.stringify(item)
+        .toLowerCase()
+        .includes(search);
     });
   }
 
+  dateTransform(date) {
+    date = date.split("-");
+    return `${date[2]}/${date[1]}/${date[0]}`;
+  }
 }
