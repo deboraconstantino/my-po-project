@@ -45,31 +45,11 @@
       "end": "2020-03-12"
     },
     {
-      "id": 6,
-      "name": "Teste",
-      "description": "Teste            t",
-      "category": "Alimentação",
-      "start": "2020-03-28",
-      "done": true,
-      "status": "finished",
-      "end": "2020-03-11"
-    },
-    {
       "id": 7,
-      "name": "Teste",
-      "description": "Oioioioioioioioioi",
+      "name": "Packet Tracer",
+      "description": "Vídeo aula para configuração de protocolo NAT.",
       "category": "Educação",
-      "start": "2020-03-12",
-      "done": true,
-      "status": "finished",
-      "end": "2020-03-12"
-    },
-    {
-      "id": 8,
-      "name": "teste",
-      "description": "kkkkkkkkkkkkkkkkkkkk",
-      "category": "Educação",
-      "start": "2020-03-12",
+      "start": "2020-03-13",
       "done": false
     }
   ],

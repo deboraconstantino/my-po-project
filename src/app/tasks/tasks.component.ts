@@ -7,7 +7,6 @@ import "rxjs/add/operator/switchMap";
 import {
   PoTableColumn,
   PoTableAction,
-  PoModalComponent,
   PoNotificationService,
   PoDialogService
 } from "@portinari/portinari-ui";
@@ -34,7 +33,7 @@ export class TasksComponent implements OnInit {
     private poAlert: PoDialogService,
     private datePipe: DatePipe,
     private formBuilder: FormBuilder
-  ) {}
+  ) { }
 
   columns: Array<PoTableColumn>;
   items: any;
@@ -60,24 +59,12 @@ export class TasksComponent implements OnInit {
 
   actions: Array<PoTableAction> = [
     {
-      action: this.viewTask.bind(this),
-      icon: "po-icon po-icon-eye",
-      label: "Detalhes"
-    },
-    {
       action: this.openDialogEnd.bind(this),
       icon: "po-icon po-icon-ok",
       label: "Finalizar",
       visible: this.disableBtnFinalizar()
     }
   ];
-
-  @ViewChild(PoModalComponent, { static: true }) poModal: PoModalComponent;
-
-  viewTask(task) {
-    this.detail = task;
-    this.poModal.open();
-  }
 
   updateTask(task) {
     this.detail = task;
@@ -110,7 +97,7 @@ export class TasksComponent implements OnInit {
     this.poAlert.confirm({
       title: "Excluir tarefa",
       message: "Confirma a exclusão da tarefa?",
-      confirm: () => this.remove(id),
+      confirm: () => this.removeTask(id),
       cancel: () => this.refresh()
     });
   }
@@ -123,10 +110,9 @@ export class TasksComponent implements OnInit {
     this.router.navigate(["/form-tasks"], { relativeTo: this.activatedRoute });
   }
 
-  remove(id) {
+  removeTask(id) {
     this.tasksService.removeTask(id).subscribe(a => {
       this.poNotification.success("Tarefa excluída com sucesso!"),
-        this.poModal.close();
       this.refresh();
     });
   }

@@ -52,6 +52,7 @@ export class FormCategoriesComponent implements OnInit {
       } else if (!this.formCategories.value.id) {
         this.inputCategory();
       }
+      this.router.navigate(['categories'])
     } else {
       this.poNotification.error(
         "Por favor, preencher nome da categoria!"

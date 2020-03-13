@@ -5,99 +5,36 @@
         <span class="po-icon po-icon-search po-field-icon"></span>
       </div>
       <form [formGroup]="searchForm">
-        <input
-          formControlName="searchControl"
-          class="po-input po-input-icon-right ng-pristine ng-valid ng-touched"
-          name="model"
-          type="text"
-          placeholder="Pesquisar"
-        />
+        <input formControlName="searchControl" class="po-input po-input-icon-right ng-pristine ng-valid ng-touched"
+          name="model" type="text" placeholder="Pesquisar" />
       </form>
     </div>
     <div class="po-offset-lg-8 po-offset-xl-8">
       <div class="po-field-container-content">
-        <po-button
-          p-label="Incluir"
-          p-type="primary"
-          p-icon="po-icon po-icon-plus"
-          (p-click)="include()"
-        >
+        <po-button p-label="Incluir" p-type="primary" p-icon="po-icon po-icon-plus" (p-click)="include()">
         </po-button>
       </div>
     </div>
   </div>
 
   <po-container>
-    <po-table
-      [p-actions]="actions"
-      [p-columns]="columns"
-      [p-items]="items | search: searchForm.get('searchControl').value"
-      p-sort="true"
-      [p-striped]="true"
-      (p-collapsed)="onCollapseDetail()"
-      (p-expanded)="onExpandDetail()"
-    >
+    <po-table [p-actions]="actions" [p-columns]="columns"
+      [p-items]="items | search: searchForm.get('searchControl').value" p-sort="true" [p-striped]="true">
+
+      <ng-template p-table-row-template let-detail let-i="details">
+          <po-info class="po-sm-3" p-label="Código da Tarefa" [p-value]="detail?.id">
+          </po-info>
+
+          <po-info class="po-sm-7" p-label="Descrição" [p-value]="detail?.description"> </po-info>
+
+          <po-button *ngIf="!detail?.end" (p-click)="edit(detail?.id)" p-label="Alterar" p-type="link"
+            p-icon="po-icon po-icon-edit">
+          </po-button>
+
+          <po-button *ngIf="detail?.end" (p-click)="openDialog(detail?.id)" p-label="Excluir" p-type="link"
+            p-icon="po-icon po-icon-close">
+          </po-button>
+      </ng-template>
     </po-table>
   </po-container>
-
-  <po-modal
-    #modal
-    p-hide-close="true"
-    p-click-out="true"
-    p-title="Detalhes sobre {{ detail?.name }}"
-  >
-    <div>
-      <div class="po-offset-sm-10">
-        <po-button
-          *ngIf="!detail?.end"
-          (p-click)="edit(detail?.id)"
-          p-label="Alterar"
-          p-type="primary"
-          p-icon="po-icon po-icon-edit"
-        >
-        </po-button>
-
-        <po-button
-          *ngIf="detail?.end"
-          (p-click)="openDialog(detail?.id)"
-          p-label="Excluir"
-          p-type="danger"
-          p-icon="po-icon po-icon-clear-content"
-        >
-        </po-button>
-      </div>
-      <po-divider> </po-divider>
-    </div>
-
-    <po-info class="po-sm-6" p-label="Código da Tarefa" [p-value]="detail?.id">
-    </po-info>
-
-    <po-info class="po-sm-6" p-label="Nome da Tarefa" [p-value]="detail?.name">
-    </po-info>
-
-    <po-info
-      class="po-sm-12"
-      p-label="Descrição"
-      [p-value]="detail?.description"
-    >
-    </po-info>
-
-    <po-info class="po-sm-6" p-label="Categoria" [p-value]="detail?.category">
-    </po-info>
-
-    <po-info
-      class="po-sm-3"
-      p-label="Data Limite"
-      [p-value]="detail?.start | date: 'dd/MM/yyyy'"
-    >
-    </po-info>
-
-    <po-info
-      *ngIf="detail?.end"
-      class="po-sm-3"
-      p-label="Conclusão"
-      [p-value]="detail?.end"
-    >
-    </po-info>
-  </po-modal>
 </po-page-default>

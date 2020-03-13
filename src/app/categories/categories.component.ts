@@ -35,7 +35,7 @@ export class CategoriesComponent implements OnInit {
     this.poAlert.confirm({
       title: "Excluir categoria",
       message: "Confirma a exclusão da categoria?",
-      confirm: () => this.remove(id),
+      confirm: () => this.removeCategory(id),
       cancel: () => this.refresh()
     });
   }
@@ -45,7 +45,7 @@ export class CategoriesComponent implements OnInit {
     .subscribe(categories => this.categories = categories);
   }
 
-  remove(id) {
+  removeCategory(id) {
     this.categoriesService.deleteCategory(id).subscribe(a => {
       this.poNotification.success("Categoria excluída com sucesso!"),
       this.refresh();
