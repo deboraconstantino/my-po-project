@@ -1,27 +1,18 @@
-# MyPoProject
+# Desafio Portinari - 1º semestre 2020
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.24.
+## Acesso
 
-## Development server
+1° Instalar as dependências: npm install;
+2° Subir a API: json-server db.json (http://localhost:3000);
+3° Compilar o projeto: ng serve;
+4° Acessar http://localhost:4200:
+	Usuário: admin
+	Senha: admin
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Certificados
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+JavaScript Básico: https://udemy-certificate.s3.amazonaws.com/image/UC-e541ec8b-088d-4a86-942a-91200b9d9108.jpg?l=null
+JavaScript Avançado l: ES6, Orientação a Objetos e Padrões de Projetos: https://cursos.alura.com.br/certificate/2f8c2b69-aaa0-467b-af45-34a37c237385
+Typescript Parte 2: Mais técnicas e boas práticas: https://cursos.alura.com.br/certificate/80e3d13d-5ea7-48e6-b3e1-fb78cfc9a95a
+Angular: https://udemy-certificate.s3.amazonaws.com/image/UC-71caf0ab-76c2-4f4a-b549-59ca8d395f8d.jpg?l=null
+Jasmine:
