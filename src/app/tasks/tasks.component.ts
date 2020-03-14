@@ -16,6 +16,7 @@ import { Task } from "./task.model";
 
 @Component({
   selector: "sample-po-page-dynamic-table-users",
+  styleUrls: ['./tasks.component.css'],
   templateUrl: "./tasks.component.html",
   preserveWhitespaces: true
 })
