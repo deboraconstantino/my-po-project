@@ -5,22 +5,29 @@ import { BrowserModule } from '@angular/platform-browser';
 import { LoginComponent } from './login.component';
 import { LoginService } from './login.service';
 import { PoPageLoginModule, PoModalPasswordRecoveryModule } from '@portinari/portinari-templates';
-import { PoPageModule } from '@portinari/portinari-ui';
+import { PoPageModule, PoFieldModule, PoModule } from '@portinari/portinari-ui';
+import { NewUserComponent } from './new-user/new-user.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const ROUTES: Routes = [
-    {path: 'login', component: LoginComponent}
+    {path: 'login', component: LoginComponent},
+    {path: 'new-user', component: NewUserComponent}
 ]
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    NewUserComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(ROUTES),
     PoPageLoginModule,
     PoModalPasswordRecoveryModule,
-    PoPageModule
+    PoPageModule,
+    PoFieldModule,
+    PoModule,
+    ReactiveFormsModule
   ],
   providers: [LoginService]
 })

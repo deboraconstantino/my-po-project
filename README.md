@@ -6,8 +6,8 @@
 * Subir a API: json-server db.json (http://localhost:3000);
 * Subir a aplicação: ng serve;
 * Acessar http://localhost:4200
-	Usuário: admin
-	Senha: admin
+	Usuário: admin@totvs.com.br
+	Senha: admin1
 
 ## Certificados
 

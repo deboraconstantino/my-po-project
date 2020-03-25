@@ -15,7 +15,9 @@ import { DatePipe } from '@angular/common';
 export class TasksService {
   date = new Date();
   newDate;
-  status = "false"
+  status = "false";
+  page = 1;
+  limit = 10;
 
   constructor(private http: HttpClient,
     private datePipe: DatePipe){}
@@ -35,8 +37,8 @@ export class TasksService {
     ];
   }
 
-  getTasks(search: string = "") {
-    return this.http.get<Task[]>(`${TASKS_API}/tasks?done=${this.status}`, {params: {q: search}})
+  getTasks(id, page?, limit?) {
+    return this.http.get<Task[]>(`${TASKS_API}/tasks?done=${this.status}&user=${id}&_page=${page}&_limit=${limit}`)
     .catch(ErrorHandler.handleError)
   }
 

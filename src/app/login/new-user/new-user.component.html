@@ -1,0 +1,68 @@
+<div class="po-wrapper">
+    <div class="po-page-login-container">
+      <div class="po-page-login-panel">
+        <div class="po-page-login-body">
+          <div class="po-page-login-panel-content">
+            <div class="po-page-login-header po-mb-2 po-mb-sm-1 po-pt-sm-1">
+                <div class="po-page-login-header-title po-mb-sm-1">
+                    <p>Cadastrar usuário</p>
+                  </div>
+            </div>
+            <form class="po-page-login-form ng-untouched ng-pristine ng-invalid" [formGroup]="formUser">
+              <div class="po-row">
+                <div class="po-page-login-hint po-page-login-info-container">
+                  <po-email
+                    name="login"
+                    p-placeholder="Informe um e-mail"
+                    formControlName="user"
+                  >
+                  </po-email>
+                  <div class="po-page-login-info-icon-container">
+                    <span
+                      class="po-icon po-field-icon po-icon-info"
+                      p-tooltip-position="right"
+                      p-tooltip="O e-mail informado será utilizado como login."
+                    ></span>
+                  </div>
+                </div>
+                <div class="po-page-login-hint po-page-login-info-container">
+                  <po-password
+                    name="password"
+                    p-placeholder="Informe uma senha"
+                    minlength="6"
+                    formControlName="pass"
+                  >
+                  </po-password>
+                  <div class="po-page-login-info-icon-container">
+                    <span
+                      class="po-icon po-field-icon po-icon-info"
+                      p-tooltip-position="right"
+                      p-tooltip="A senha deve possuir ao menos 6 caracteres."
+                    ></span>
+                  </div>
+                </div>
+              </div>
+              <div class="po-row">
+                <div class="po-lg-12 po-xl-12">
+                  <po-button
+                    p-type="primary"
+                    class="po-lg-12  po-xl-12 po-page-login-button po-page-login-field-size"
+                    p-label="Salvar"
+                    (click)="saveUser(user)"
+                  >
+                  </po-button>
+                </div>
+              </div>
+              <div class="po-row">
+                <div class="po-page-login-register-link">
+                  <a class="po-font-text-large-bold" href="login"
+                    >Voltar para página de Login</a
+                  >
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

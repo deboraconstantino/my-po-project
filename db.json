@@ -2,77 +2,153 @@
   "tasks": [
     {
       "id": 1,
-      "name": "Curso JS",
-      "description": "Curso de JavaScript Avançado l",
-      "category": "Trabalho",
-      "start": "2020-03-17",
-      "done": false
+      "name": "Tarefa Admin",
+      "description": "Teste Admin... ",
+      "category": "Outros",
+      "start": "2020-03-24",
+      "done": true,
+      "user": "1",
+      "status": "finished",
+      "$showAction": true,
+      "end": "2020-03-24"
     },
     {
       "id": 2,
-      "name": "Curso TS",
-      "description": "Curso TypeScript Avançado l",
-      "category": "Educação",
-      "start": "2020-03-17",
-      "done": false
+      "name": "Tarefa Admin 2",
+      "description": "Tarefa Admin 2 ",
+      "category": "Saúde",
+      "start": "2020-03-26",
+      "done": false,
+      "user": "1"
     },
     {
       "id": 3,
-      "name": "Curso Angular",
-      "description": "Curso Angular Avançado",
-      "category": "Educação",
-      "start": "2020-03-17",
-      "done": false
+      "name": "Tarefa Admin 3",
+      "description": "Tarefa Admin 2 ",
+      "category": "Lazer",
+      "start": "2020-06-06",
+      "done": false,
+      "user": "1"
     },
     {
       "id": 4,
-      "name": "Comprar ovo",
-      "description": "Comprar ovo para fazer omelete.",
-      "category": "Alimentação",
-      "start": "2020-03-10",
-      "done": true,
-      "status": "finished",
-      "end": "2020-03-10"
+      "name": "Tarefa Admin 4",
+      "description": "Tarefa Admin 4 ",
+      "category": "Saúde",
+      "start": "2020-03-26",
+      "done": false,
+      "user": "1"
     },
     {
       "id": 5,
-      "name": "Nutricionista",
-      "description": "Marcar nutricionista.",
+      "name": "Tarefa Admin 5",
+      "description": "Tarefa Admin 5 ",
       "category": "Saúde",
-      "start": "2020-03-10",
-      "done": true,
-      "status": "finished",
-      "end": "2020-03-12"
+      "start": "2020-03-26",
+      "done": false,
+      "user": "1"
+    },
+    {
+      "id": 6,
+      "name": "Tarefa Admin 6",
+      "description": "Tarefa Admin 6 ",
+      "category": "Saúde",
+      "start": "2020-03-22",
+      "done": false,
+      "user": "1"
     },
     {
       "id": 7,
-      "name": "Packet Tracer",
-      "description": "Vídeo aula para configuração de protocolo NAT.",
+      "name": "Tarefa Admin 7",
+      "description": "Tarefa Admin 7 ",
+      "category": "Saúde",
+      "start": "2020-03-26",
+      "done": false,
+      "user": "1"
+    },
+    {
+      "id": 8,
+      "name": "Tarefa Admin 8",
+      "description": "Tarefa Admin 8 ",
+      "category": "Saúde",
+      "start": "2020-03-26",
+      "done": false,
+      "user": "1"
+    },
+    {
+      "id": 9,
+      "name": "Tarefa Admin 9",
+      "description": "Tarefa Admin 9 ",
+      "category": "Saúde",
+      "start": "2020-03-26",
+      "done": true,
+      "user": "1",
+      "status": "finished",
+      "$showAction": true,
+      "end": "2020-03-24"
+    },
+    {
+      "id": 10,
+      "name": "Tarefa Admin 10",
+      "description": "Tarefa Admin 10 ",
       "category": "Educação",
-      "start": "2020-03-13",
-      "done": false
+      "start": "2020-03-26",
+      "done": false,
+      "user": "1"
+    },
+    {
+      "id": 11,
+      "name": "Tarefa Admin 11",
+      "description": "Tarefa Admin 11 ",
+      "category": "Trabalho",
+      "start": "2020-03-26",
+      "done": false,
+      "user": "1"
+    },
+    {
+      "id": 12,
+      "name": "Tarefa Admin 12",
+      "description": "Tarefa Admin 12 ",
+      "category": "Alimentação",
+      "start": "2020-04-04",
+      "done": false,
+      "user": "1"
+    },
+    {
+      "id": 13,
+      "name": "Tarefa Admin 13",
+      "description": "Tarefa Admin 13 ",
+      "category": "Saúde",
+      "start": "2020-03-26",
+      "done": false,
+      "user": "1"
+    },
+    {
+      "id": 14,
+      "name": "Tarefa Admin 14",
+      "description": "Tarefa Admin 14 ",
+      "category": "Alimentação",
+      "start": "2020-03-26",
+      "done": false,
+      "user": "1"
     }
   ],
   "categories": [
     {
       "id": 1,
-      "name": "Lazer",
-      "status": "Habilitada"
+      "name": "Lazer"
     },
     {
       "id": 2,
-      "name": "Outros",
-      "status": "Habilitada"
+      "name": "Outros"
     },
     {
       "id": 3,
-      "name": "Educação",
-      "status": "Habilitada"
+      "name": "Educação"
     },
     {
       "id": 4,
-      "name": "Trabalho",
-      "status": "Habilitada"
+      "name": "Trabalho"
     },
     {
       "id": 5,
@@ -81,6 +157,18 @@
     {
       "id": 6,
       "name": "Alimentação"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "user": "admin@totvs.com.br",
+      "pass": "admin1"
+    },
+    {
+      "id": 2,
+      "user": "debora.constantino@totvs.com.br",
+      "pass": "teste1"
     }
   ]
 }

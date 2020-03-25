@@ -1,40 +1,75 @@
 <po-page-default>
   <div class="row clear">
-    <div class='po-lg-6'>
+    <div class="po-lg-6">
       <div class="po-field-container-content po-page-filter-content">
         <div class="po-field-icon-container-right">
           <span class="po-icon po-icon-search po-field-icon"></span>
         </div>
         <form [formGroup]="searchForm">
-          <input formControlName="searchControl" class="po-input po-input-icon-right ng-pristine ng-valid ng-touched"
-            name="model" type="text" placeholder="Pesquisar" />
+          <input
+            formControlName="searchControl"
+            class="po-input po-input-icon-right ng-pristine ng-valid ng-touched"
+            name="model"
+            type="text"
+            placeholder="Pesquisar"
+          />
         </form>
       </div>
     </div>
-    <div class='po-lg-6'>
+    <div class="po-lg-6">
       <div class="po-field-container-content">
-        <po-button class="po-offset-xl-10 po-offset-lg-10" p-label="Incluir" p-type="primary"
-          p-icon="po-icon po-icon-plus" (p-click)="include()">
+        <po-button
+          class="po-offset-xl-10 po-offset-lg-10"
+          p-label="Incluir"
+          p-type="primary"
+          p-icon="po-icon po-icon-plus"
+          (p-click)="include()"
+        >
         </po-button>
       </div>
     </div>
   </div>
   <po-container>
-    <po-table [p-actions]="actions" [p-columns]="columns"
-      [p-items]="items | search: searchForm.get('searchControl').value" p-sort="true" [p-striped]="true">
-
+    <po-table
+      [p-actions]="actions"
+      [p-columns]="columns"
+      [p-items]="items | search: searchForm.get('searchControl').value"
+      p-sort="true"
+      [p-striped]="true"
+      [p-show-more-disabled]="disableShowMore"
+      (p-show-more)="showMore($event)"
+    >
       <ng-template p-table-row-template let-detail let-i="details">
-        <po-info class="po-sm-3" p-label="Código da Tarefa" [p-value]="detail?.id">
+        <po-info
+          class="po-sm-3"
+          p-label="Código da Tarefa"
+          [p-value]="detail?.id"
+        >
         </po-info>
 
-        <po-info class="po-sm-7" p-label="Descrição" [p-value]="detail?.description"> </po-info>
+        <po-info
+          class="po-sm-7"
+          p-label="Descrição"
+          [p-value]="detail?.description"
+        >
+        </po-info>
 
-        <po-button *ngIf="!detail?.end" (p-click)="edit(detail?.id)" p-label="Alterar" p-type="link"
-          p-icon="po-icon po-icon-edit">
+        <po-button
+          *ngIf="!detail?.end"
+          (p-click)="edit(detail?.id)"
+          p-label="Alterar"
+          p-type="link"
+          p-icon="po-icon po-icon-edit"
+        >
         </po-button>
 
-        <po-button *ngIf="detail?.end" (p-click)="openDialog(detail?.id)" p-label="Excluir" p-type="link"
-          p-icon="po-icon po-icon-close">
+        <po-button
+          *ngIf="detail?.end"
+          (p-click)="openDialog(detail?.id)"
+          p-label="Excluir"
+          p-type="link"
+          p-icon="po-icon po-icon-close"
+        >
         </po-button>
       </ng-template>
     </po-table>

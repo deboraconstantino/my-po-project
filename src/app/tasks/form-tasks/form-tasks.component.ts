@@ -33,7 +33,8 @@ export class FormTasksComponent implements OnInit {
     start: "",
     end: "",
     status: "",
-    done: false
+    done: false,
+    user: ""
   };
 
   constructor(
@@ -47,9 +48,12 @@ export class FormTasksComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.categoriesService.getCategories()
-    .subscribe(categories => this.categories = categories
-      .map(a => ({value: a.name})));
+    this.categoriesService
+      .getCategories()
+      .subscribe(
+        categories =>
+          (this.categories = categories.map(a => ({ value: a.name })))
+      );
 
     this.activatedroute.params
       .pipe(
@@ -76,7 +80,8 @@ export class FormTasksComponent implements OnInit {
       ],
       category: [this.tasks.category, [Validators.required]],
       start: [this.tasks.start, [Validators.required]],
-      done: [this.tasks.done]
+      done: [this.tasks.done],
+      user: [localStorage.getItem("id")]
     });
   }
 
@@ -86,7 +91,12 @@ export class FormTasksComponent implements OnInit {
 
     if (this.formTasks.valid) {
       if (this.formTasks.value.id) {
-        this.updateTask();
+        if (this.validDate(this.formTasks.value.start)) {
+          this.formTasks.value.done = this.tasks.done;
+          this.updateTask();
+        } else {
+          this.poNotification.error("Data inválida, tente novamente.");
+        }
       } else if (!this.formTasks.value.id) {
         if (this.validDate(this.formTasks.value.start)) {
           this.formTasks.value.done = this.tasks.done;
@@ -113,36 +123,23 @@ export class FormTasksComponent implements OnInit {
   }
 
   updateTask() {
-    this.tasksService
-      .updateTask(this.formTasks.value)
-      .subscribe(a =>
-        this.poNotification.success("Tarefa alterada com sucesso!")
-      );
-    this.router.navigate(["/tasks"]);
+    this.tasksService.updateTask(this.formTasks.value).subscribe(a => {
+      this.poNotification.success("Tarefa alterada com sucesso!"),
+        this.router.navigate(["/tasks"]);
+    });
   }
 
   inputTask() {
     this.tasksService.postItems(this.formTasks.value).subscribe(a => {
-      this.poNotification.success("Tarefa incluída com sucesso!"), this.clear();
+      this.poNotification.success("Tarefa incluída com sucesso!"),
+        this.router.navigate(["/tasks"]);
     });
-    this.router.navigate(["/tasks"]);
-    this.tasksService.getTasks().subscribe(
-      dados =>
-        (this.items = dados.map(dado => ({
-          ...dado,
-          status: this.tasksService.updStatus(dado.start, dado.end, dado.status)
-        })))
-    );
   }
 
   validDate(date) {
     if (date >= this.newDate) {
       return true;
     }
-  }
-
-  clear() {
-    this.formTasks.reset();
   }
 
   close() {

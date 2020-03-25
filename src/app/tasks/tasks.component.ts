@@ -16,13 +16,13 @@ import { Task } from "./task.model";
 
 @Component({
   selector: "sample-po-page-dynamic-table-users",
-  styleUrls: ['./tasks.component.css'],
+  styleUrls: ["./tasks.component.css"],
   templateUrl: "./tasks.component.html",
   preserveWhitespaces: true
 })
 export class TasksComponent implements OnInit {
   task: Task;
-
+  disableShowMore: boolean = false;
   searchForm: FormGroup;
   searchControl: FormControl;
 
@@ -34,17 +34,19 @@ export class TasksComponent implements OnInit {
     private poAlert: PoDialogService,
     private datePipe: DatePipe,
     private formBuilder: FormBuilder
-  ) { }
+  ) {}
 
   columns: Array<PoTableColumn>;
   items: any;
   detail: any;
   action: string;
   date = new Date();
+  page = 1;
+  limit = 10;
 
   ngOnInit() {
     this.columns = this.tasksService.getColumns();
-    this.tasksService.getTasks().subscribe(
+    this.tasksService.getTasks(localStorage.getItem("id")).subscribe(
       dados =>
         (this.items = dados.map(dado => ({
           ...dado,
@@ -75,13 +77,11 @@ export class TasksComponent implements OnInit {
       this.detail.end = this.datePipe.transform(this.date, "yyyy-MM-dd");
       this.detail.done = true;
       this.detail.status = "finished";
-      this.tasksService
-        .updateTask(this.detail)
-        .subscribe(a =>
-          this.poNotification.success("Tarefa finalizada com sucesso!")
-        );
+      this.tasksService.updateTask(this.detail).subscribe(a => {
+        this.poNotification.success("Tarefa finalizada com sucesso!"),
+          this.refresh();
+      });
     }
-    this.refresh();
   }
 
   openDialogEnd(id) {
@@ -114,12 +114,12 @@ export class TasksComponent implements OnInit {
   removeTask(id) {
     this.tasksService.removeTask(id).subscribe(a => {
       this.poNotification.success("Tarefa excluída com sucesso!"),
-      this.refresh();
+        this.refresh();
     });
   }
 
   refresh() {
-    this.tasksService.getTasks().subscribe(
+    this.tasksService.getTasks(localStorage.getItem("id")).subscribe(
       dados =>
         (this.items = dados.map(dado => ({
           ...dado,
@@ -133,5 +133,26 @@ export class TasksComponent implements OnInit {
       return false;
     }
     return true;
+  }
+
+  showMore() {
+    this.page++;
+
+    this.tasksService
+      .getTasks(localStorage.getItem("id"), this.page, this.limit)
+      .subscribe(
+        dados =>
+          (this.items = [
+            ...this.items,
+            ...dados.map(dado => ({
+              ...dado,
+              status: this.tasksService.updStatus(
+                dado.start,
+                dado.end,
+                dado.status
+              )
+            }))
+          ])
+      );
   }
 }

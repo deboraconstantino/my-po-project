@@ -17,7 +17,8 @@ export class FormCategoriesComponent implements OnInit {
 
   categories: Category = {
     id: "",
-    name: ""
+    name: "",
+    user: ""
   };
 
   constructor(
@@ -30,7 +31,8 @@ export class FormCategoriesComponent implements OnInit {
   ngOnInit() {
     this.formCategories = this.formBuilder.group({
       id: [this.categories.id],
-      name: [this.categories.name, Validators.required]
+      name: [this.categories.name, Validators.required],
+      user: [localStorage.getItem("id")]
     });
 
     this.activatedRoute.params

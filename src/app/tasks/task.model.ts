@@ -6,5 +6,6 @@ export interface Task {
     start: string,
     end: string,
     status: string,
-    done: boolean
+    done: boolean,
+    user: string
 }
